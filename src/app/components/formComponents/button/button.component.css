@@ -1,0 +1,10 @@
+button {
+  background-color: transparent;
+  padding: var(--xsmall-spacing) var(--small-spacing);
+  font-size: 1rem;
+  border: none;
+}
+
+.border {
+  border: .125rem solid var(--font-color);
+}
