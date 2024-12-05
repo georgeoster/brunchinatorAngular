@@ -1,0 +1,15 @@
+input {
+  box-sizing: border-box;
+  padding: var(--small-spacing) var(--medium-spacing);
+  border-radius: var(--border-radius);
+  width: 100%;
+  font-size: 1rem;
+}
+
+input:focus-visible {
+  outline: none;
+}
+
+input:focus::placeholder {
+  color: transparent;
+}

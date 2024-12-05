@@ -17,6 +17,7 @@ html, body {
   --medium-spacing: 1rem;
   --large-spacing: 1.5rem;
   --xlarge-spacing: 2rem;
+  --border-radius: .5rem;
   background-color: var(--body-background-color);
 
 }
@@ -25,4 +26,9 @@ html, body {
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
 }

@@ -7,4 +7,5 @@ button {
 
 .border {
   border: .125rem solid var(--font-color);
+  border-radius: var(--border-radius);
 }
