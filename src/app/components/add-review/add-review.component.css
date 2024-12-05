@@ -1,0 +1,7 @@
+.brunch-text-input-container {
+  padding: 1rem;
+  border: 1px solid red;
+  box-sizing: border-box;
+  width: 50%;
+  margin: auto
+}
