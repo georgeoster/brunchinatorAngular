@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { UserComponent } from './user.component';
-import { ButtonComponent } from '../../formComponents/button/button.component';
+import { ButtonComponent } from '../../uiComponents/button/button.component';
 import { By } from '@angular/platform-browser';
 
 describe('UserComponent', () => {

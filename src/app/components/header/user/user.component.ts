@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NgIf } from '@angular/common';
-import { ButtonComponent } from "../../formComponents/button/button.component";
+import { ButtonComponent } from "../../uiComponents/button/button.component";
 import { UserService } from '../../../services/user.service';
 import { Subscription } from 'rxjs';
 import { User } from '../../../types/all.types';
