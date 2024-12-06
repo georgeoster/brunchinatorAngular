@@ -2,5 +2,5 @@ section {
   box-sizing: border-box;
   border: .0625rem solid var(--card-border-color);
   border-radius: var(--border-radius);
-  padding: var(--medium-spacing)
+  padding: var(--medium)
 }

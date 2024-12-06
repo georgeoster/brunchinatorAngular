@@ -17,9 +17,9 @@
 .menuVisible {
   color: var(--font-color);
   background-color: var(--card-background-color);
-  backdrop-filter: blur(var(--small-spacing));
+  backdrop-filter: blur(var(--small));
   width: 100%;
-  padding: var(--large-spacing);
+  padding: var(--large);
   box-sizing: border-box;
   transform: translate3d(0vw, 0, 0);
 }
@@ -40,7 +40,7 @@ li {
   height: min-content;
   min-width: min-content;
   box-sizing: border-box;
-  padding: var(--xlarge-spacing) 0;
+  padding: var(--xlarge) 0;
   cursor: pointer;
   width: 100%;
   word-break: normal;

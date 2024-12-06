@@ -12,11 +12,11 @@ html, body {
   --card-border-color: black;
   --body-background-color: white;
   --header-height: 4.4213875rem;/* 70.7422px @ font-size of 16px*/
-  --xsmall-spacing: .25rem;
-  --small-spacing: .5rem;
-  --medium-spacing: 1rem;
-  --large-spacing: 1.5rem;
-  --xlarge-spacing: 2rem;
+  --xsmall: .25rem;
+  --small: .5rem;
+  --medium: 1rem;
+  --large: 1.5rem;
+  --xlarge: 2rem;
   --border-radius: .5rem;
   background-color: var(--body-background-color);
 
