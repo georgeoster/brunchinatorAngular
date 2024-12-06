@@ -1,5 +1,5 @@
 header {
-  padding: var(--medium-spacing) var(--large-spacing);
+  padding: var(--medium) var(--large);
   background-color: var(--card-background-color);
   /* box-shadow: 0 4px 30px rgb(0 0 0 /10%); */
   /* backdrop-filter: blur(5px); */

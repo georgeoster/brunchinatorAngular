@@ -13,7 +13,7 @@
   display: block;
   height: .12rem;
   border-radius: .18rem;
-  margin: var(--small-spacing) 0;
+  margin: var(--small) 0;
   transition: .5s;
 }
 

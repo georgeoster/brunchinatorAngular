@@ -1,0 +1,20 @@
+input {
+  display: none;
+}
+
+.title {
+  font-size: var(--large);
+  margin-right: var(--xsmall);
+}
+
+.star {
+  width: var(--large);
+  min-width: var(--large);
+  aspect-ratio: 1;
+  background: lightgray;
+  clip-path: polygon(50% 0,79% 90%,2% 35%,98% 35%,21% 90%);
+}
+
+.selected {
+  background: #F8CA00;
+}

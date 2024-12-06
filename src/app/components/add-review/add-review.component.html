@@ -2,6 +2,10 @@
 
 <div class="card">
   <brunch-card class="card">
+    <brunch-star-rating
+      title="Beers"
+      (rating)="handleRating($event)"
+    />
     <div class="place-text-input-container">
       <brunch-text-input 
         [(text)]="valueFromBrunchTextInput"
