@@ -1,16 +1,20 @@
 
-<div class="field">{{field}}</div>
-<div class="flex-row input-wrapper">
-  <img [src]="leftIcon()"/>
-  <input 
-    [type]="type" 
-    [(ngModel)]="text" 
-    (ngModelChange)="textChange.emit(text)"
-    [placeholder]="placeholder"  
-    autocomplete="off"
-  />
-  <img *ngIf="icon === 'password'" [src]="eyeBallIcon()" (click)="toggleShowPassword()"/>
+<div [ngClass]="{'container': !hasError, 'container-error': hasError }">
+  <div class="field">{{field}}</div>
+  <div class="flex-row input-wrapper" [ngClass]="{'input-wrapper-error': hasError }">
+    <img [src]="leftIcon()"/>
+    <input 
+      [type]="type" 
+      [(ngModel)]="text" 
+      (ngModelChange)="textChange.emit(text)"
+      [placeholder]="placeholder"  
+      autocomplete="off"
+    />
+    <img *ngIf="icon === 'password'" [src]="eyeBallIcon()" (click)="toggleShowPassword()"/>
+  </div>
+  <div *ngIf="hasError" class="error-message">{{errorMessage}}</div>
 </div>
+
 
 
 
