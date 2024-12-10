@@ -1,10 +1,10 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { NgIf } from '@angular/common';
+import { NgIf, NgClass } from '@angular/common';
 
 @Component({
   selector: 'brunch-text-input',
-  imports: [FormsModule, NgIf],
+  imports: [FormsModule, NgIf, NgClass],
   templateUrl: './text-input.component.html',
   styleUrl: './text-input.component.css'
 })
@@ -16,6 +16,8 @@ export class TextInputComponent {
   @Input() field:string = '';
   @Input() type:string = 'text';
   @Input() icon:string = 'user';
+  @Input() hasError:boolean = false;
+  @Input() errorMessage:string = '';
   showPassword:boolean = false;
 
   leftIcon() {

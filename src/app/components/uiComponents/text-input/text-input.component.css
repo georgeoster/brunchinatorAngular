@@ -1,7 +1,9 @@
 .field {
-  padding-left: var(--small);
+  box-sizing: border-box;
+  padding: 0 var(--small);
   margin-bottom: var(--xsmall);
 }
+
 .input-wrapper {
   box-sizing: border-box;
   padding: var(--small);
@@ -10,6 +12,7 @@
   width: 100%;
   font-size: var(--medium);
 }
+
 img {
   height: var(--large);
   width: var(--large);
@@ -28,4 +31,24 @@ input:focus-visible {
 
 input:focus::placeholder {
   color: transparent;
+}
+
+.input-wrapper-error {
+  border-color: var(--error-color);
+}
+
+.error-message {
+  box-sizing: border-box;
+  padding: 0 var(--small);
+  color: var(--error-color);
+}
+
+.container {
+  box-sizing: border-box;
+  padding-bottom: 1.15625rem;
+}
+
+.container-error {
+  box-sizing: border-box;
+  padding-bottom: 0;
 }
