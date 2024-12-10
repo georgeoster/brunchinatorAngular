@@ -1,1 +1,34 @@
-<p>sign-in works!</p>
+<div class="card">
+  <brunch-card>
+    <h1>Sign In To Your Account</h1>
+    <div class="brunch-text-input-wrapper">
+      <brunch-text-input 
+        field="UserName"
+        [(text)]="userName"
+        placeholder="UserName"  
+      />
+    </div>
+    <div class="brunch-text-input-wrapper">
+      <brunch-text-input 
+        field="Password"
+        type="password"
+        icon="password"
+        [(text)]="password"
+        placeholder="Password"  
+      />
+    </div>
+    <div class="sign-in-button-wrapper">
+      <brunch-button
+        title="Sign In"
+        (buttonClick)="handleSignIn()"
+      />
+    </div>
+  <div class="sign-up-message">
+    Don't have an account? <span class="sign-up-link" (click)="routeTo(ROUTE_NAMES.SIGN_UP)">Sign Up</span>
+  </div>
+  <div class="forgot-password">
+    Forgot Password?
+  </div>
+  </brunch-card>
+</div>
+
