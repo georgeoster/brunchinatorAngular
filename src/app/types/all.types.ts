@@ -9,3 +9,17 @@ export type User = {
   email: string,
   token: string
 }
+
+export type userResponse = {
+  success:boolean,
+  user: {
+    userName: string,
+    email: string,
+    token: string
+  }
+}
+
+export type serviceError = {
+  statusCode: number,
+  message: string
+}

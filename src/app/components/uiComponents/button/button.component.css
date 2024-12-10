@@ -1,7 +1,8 @@
 button {
   background-color: transparent;
-  padding: var(--xsmall) var(--small);
-  font-size: 1rem;
+  padding: var(--small) var(--medium);
+  font-size: var(--medium);
+  width: 100%;
   border: none;
 }
 

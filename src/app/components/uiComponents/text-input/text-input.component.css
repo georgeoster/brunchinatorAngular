@@ -1,9 +1,25 @@
-input {
+.field {
+  padding-left: var(--small);
+  margin-bottom: var(--xsmall);
+}
+.input-wrapper {
   box-sizing: border-box;
-  padding: var(--small) var(--medium);
+  padding: var(--small);
+  border: .0625rem solid var(--card-border-color);
   border-radius: var(--border-radius);
   width: 100%;
-  font-size: 1rem;
+  font-size: var(--medium);
+}
+img {
+  height: var(--large);
+  width: var(--large);
+}
+
+input {
+  outline: none;
+  border: none;
+  flex-grow: 1;
+  padding-left: var(--small);
 }
 
 input:focus-visible {

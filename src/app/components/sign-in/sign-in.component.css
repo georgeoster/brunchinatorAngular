@@ -1,0 +1,42 @@
+
+
+  .card {
+    width: 80%;
+    min-width: 20rem;
+    margin: 10% auto 0 auto;
+  }
+
+  h1 {
+    text-align: center;
+    margin-top: 0;
+  }
+  
+  .brunch-text-input-wrapper  {
+    margin-bottom: var(--medium);
+  }
+
+  .sign-in-button-wrapper {
+    margin-top: var(--large);
+  }
+
+  .sign-up-message {
+    margin: var(--large) auto 0 auto;
+    text-align: center;
+  }
+
+  .sign-up-link {
+    color: blue;
+    cursor: pointer;
+  }
+
+  .forgot-password {
+    margin: var(--xsmall) auto 0 auto;
+    text-align: center;
+    color: blue;
+  }
+
+  @media (width >= 600px) {
+    .card {
+      width: 20rem;
+    }
+  }
