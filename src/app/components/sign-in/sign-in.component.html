@@ -5,7 +5,9 @@
       <brunch-text-input 
         field="UserName"
         [(text)]="userName"
-        placeholder="UserName"  
+        placeholder="UserName" 
+        [hasError]="userNameHasErrors"
+        [errorMessage]="userNameErrorMessage" 
       />
     </div>
     <div class="brunch-text-input-wrapper">
@@ -15,6 +17,8 @@
         icon="password"
         [(text)]="password"
         placeholder="Password"  
+        [hasError]="passwordHasErrors"
+        [errorMessage]="passwordErrorMessage" 
       />
     </div>
     <div class="sign-in-button-wrapper">

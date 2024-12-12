@@ -17,6 +17,10 @@ export class SignInComponent {
   ROUTE_NAMES = ROUTE_NAMES;
   userName:string = '';
   password:string = '';
+  userNameHasErrors:boolean = false;
+  passwordHasErrors:boolean = false;
+  userNameErrorMessage:string = '';
+  passwordErrorMessage:string = '';
 
   userServiceErrorSubscription:Subscription = new Subscription;
 
@@ -36,7 +40,36 @@ export class SignInComponent {
   }
 
   handleSignIn(){
+    this.resetErrors();
+    if (this.formIsInvalid()) {
+      this.handleErrors();
+      return;
+    }
     this.userService.signIn(this.userName, this.password);
+  }
+
+  resetErrors(){
+    this.userNameHasErrors = false;
+    this.userNameErrorMessage = '';
+    this.passwordHasErrors = false;
+    this.passwordErrorMessage = '';
+  }
+
+  formIsInvalid(){
+    if (this.userName?.length < 1) return true;
+    if (this.password?.length < 1) return true;
+    return false;
+  }
+
+  handleErrors(){
+    if (this.userName?.length < 1) {
+      this.userNameHasErrors = true;
+      this.userNameErrorMessage = 'UserName is required';
+    }
+    if (this.password?.length < 1) {
+      this.passwordHasErrors = true;
+      this.passwordErrorMessage = 'Password is required';
+    }
   }
 
   routeTo(route:string){
