@@ -10,8 +10,22 @@
     text-align: center;
     margin-top: 0;
   }
+  img {
+    height: var(--large);
+    width: var(--large);
+    margin-right: var(--medium);
+  }
+  .error-message {
+    box-sizing: border-box;
+    border: .0625rem solid var(--error-color);
+    color: var(--error-color);
+    background-color: white;
+    padding: var(--medium);
+    margin-bottom: var(--medium);
+    border-radius: var(--border-radius);
+  }
   
-  .brunch-text-input-wrapper  {
+  .brunch-text-input-wrapper {
     margin-bottom: var(--medium);
   }
 

@@ -1,26 +1,26 @@
 <div class="card">
   <brunch-card>
     <h1>Sign In To Your Account</h1>
-    <div class="brunch-text-input-wrapper">
-      <brunch-text-input 
-        field="UserName"
-        [(text)]="userName"
-        placeholder="UserName" 
-        [hasError]="userNameHasErrors"
-        [errorMessage]="userNameErrorMessage" 
-      />
+    <div class="flex-row error-message" *ngIf="signInError">
+      <img src="/error.png"/>
+      We can't find that username and password.
     </div>
-    <div class="brunch-text-input-wrapper">
-      <brunch-text-input 
-        field="Password"
-        type="password"
-        icon="password"
-        [(text)]="password"
-        placeholder="Password"  
-        [hasError]="passwordHasErrors"
-        [errorMessage]="passwordErrorMessage" 
-      />
-    </div>
+    <brunch-text-input 
+      field="UserName"
+      [(text)]="userName"
+      placeholder="UserName" 
+      [hasError]="userNameHasErrors"
+      [errorMessage]="userNameErrorMessage" 
+    />
+    <brunch-text-input 
+      field="Password"
+      type="password"
+      icon="password"
+      [(text)]="password"
+      placeholder="Password"  
+      [hasError]="passwordHasErrors"
+      [errorMessage]="passwordErrorMessage" 
+    />
     <div class="sign-in-button-wrapper">
       <brunch-button
         title="Sign In"
