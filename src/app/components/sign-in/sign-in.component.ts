@@ -6,10 +6,11 @@ import { Router } from '@angular/router';
 import { ROUTE_NAMES } from '../../types/globalsConsts';
 import { UserService } from '../../services/user.service';
 import { Subscription } from 'rxjs';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'brunch-sign-in',
-  imports: [CardComponent, TextInputComponent, ButtonComponent],
+  imports: [CardComponent, TextInputComponent, ButtonComponent, NgIf],
   templateUrl: './sign-in.component.html',
   styleUrl: './sign-in.component.css'
 })
@@ -21,10 +22,14 @@ export class SignInComponent {
   passwordHasErrors:boolean = false;
   userNameErrorMessage:string = '';
   passwordErrorMessage:string = '';
+  signInError:boolean = false;
+  isLoggedIn:boolean = false;
 
   userServiceErrorSubscription:Subscription = new Subscription;
+  userServiceisLoggedInSubscription:Subscription = new Subscription;
 
   constructor(private router: Router, private userService: UserService) {
+    this.subscribeToIsLoggedIn();
     this.subscribeToUserServiceErrorSubscription();
   }
 
@@ -34,8 +39,20 @@ export class SignInComponent {
 
   subscribeToUserServiceErrorSubscription(){
     this.userServiceErrorSubscription = this.userService.userServiceError.subscribe((error) => {
-      console.log('signin component gets this error:');
-      console.log(error);
+      this.resetErrors();
+      if(error?.statusCode === 401) {
+        this.signInError = true;
+      }
+    });
+  }
+
+  subscribeToIsLoggedIn(){
+    this.userServiceisLoggedInSubscription = this.userService.isLoggedIn.subscribe((isLoggedIn: boolean) => {
+      this.isLoggedIn = isLoggedIn;
+      if(this.isLoggedIn) {
+        this.resetErrors();
+        this.routeTo('home');
+      }
     });
   }
 
@@ -53,6 +70,7 @@ export class SignInComponent {
     this.userNameErrorMessage = '';
     this.passwordHasErrors = false;
     this.passwordErrorMessage = '';
+    this.signInError = false;
   }
 
   formIsInvalid(){
