@@ -24,4 +24,29 @@ describe('SignInComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  describe('when fields do not pass local validation', () => {
+    it('sets local hasErrors booleans accordingly', () => {
+      expect(component.userNameHasErrors).toBeFalse();
+      expect(component.passwordHasErrors).toBeFalse();
+
+      component.handleSignIn();
+      fixture.detectChanges();
+
+      expect(component.userNameHasErrors).toBeTrue();
+      expect(component.passwordHasErrors).toBeTrue();
+    });
+
+    it('displays error messages', () => {
+      const container = fixture.debugElement.nativeElement.querySelector('div');
+      expect(container.innerHTML).not.toContain('UserName is required');
+      expect(container.innerHTML).not.toContain('Password is required');
+      
+      component.handleSignIn();
+      fixture.detectChanges();
+
+      expect(container.innerHTML).toContain('UserName is required');
+      expect(container.innerHTML).toContain('Password is required');
+    });
+  })
 });
