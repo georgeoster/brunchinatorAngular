@@ -1,9 +1,9 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { NgClass } from '@angular/common';
+import { NgClass, NgIf } from '@angular/common';
 
 @Component({
   selector: 'brunch-button',
-  imports: [NgClass],
+  imports: [NgClass, NgIf],
   templateUrl: './button.component.html',
   styleUrl: './button.component.css'
 })
@@ -11,6 +11,7 @@ export class ButtonComponent {
 
   @Input() title: string = 'button';
   @Input() showBorder: boolean = true;
+  @Input() loading: boolean = false;
 
   @Output('buttonClick') buttonClick: EventEmitter<any> = new EventEmitter();
 

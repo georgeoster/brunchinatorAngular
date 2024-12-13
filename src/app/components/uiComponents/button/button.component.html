@@ -1,4 +1,7 @@
 <button 
-  [ngClass]="{border: showBorder}" 
+  [ngClass]="{border: showBorder, 'not-loading':!loading, loading:loading}"
   (click)="clickHandler()"
->{{title}}</button>
+>
+  <span *ngIf="!loading">{{title}}</span>
+  <img *ngIf="loading" src="/loading.png" class="rotating">
+</button>

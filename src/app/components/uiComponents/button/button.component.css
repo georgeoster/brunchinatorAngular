@@ -1,12 +1,59 @@
 button {
   background-color: transparent;
-  padding: var(--small) var(--medium);
+  height: 2.375rem;
   font-size: var(--medium);
-  width: 100%;
+  
+  margin: 0 auto;
   border: none;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  transition: all .15s ease;
+}
+
+.not-loading {
+  width: 100%;
+  transition: all .15s ease;
+}
+
+.loading {
+  width: 4.875rem;
+  transition: all .15s ease;
 }
 
 .border {
   border: .125rem solid var(--font-color);
   border-radius: var(--border-radius);
+}
+
+img {
+  height: var(--large);
+  width: var(--large);
+}
+
+.rotating {
+  -webkit-animation: rotating .75s linear infinite;
+  -moz-animation: rotating .75s linear infinite;
+  -ms-animation: rotating .75s linear infinite;
+  -o-animation: rotating .75s linear infinite;
+  animation: rotating .75s linear infinite;
+}
+
+@keyframes rotating {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
 }
