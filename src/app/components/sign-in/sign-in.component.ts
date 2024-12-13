@@ -24,6 +24,7 @@ export class SignInComponent {
   passwordErrorMessage:string = '';
   signInError:boolean = false;
   isLoggedIn:boolean = false;
+  loading:boolean = false;
 
   userServiceErrorSubscription:Subscription = new Subscription;
   userServiceisLoggedInSubscription:Subscription = new Subscription;
@@ -40,6 +41,7 @@ export class SignInComponent {
   subscribeToUserServiceErrorSubscription(){
     this.userServiceErrorSubscription = this.userService.userServiceError.subscribe((error) => {
       this.resetErrors();
+      this.loading = false;
       if(error?.statusCode === 401) {
         this.signInError = true;
       }
@@ -49,6 +51,7 @@ export class SignInComponent {
   subscribeToIsLoggedIn(){
     this.userServiceisLoggedInSubscription = this.userService.isLoggedIn.subscribe((isLoggedIn: boolean) => {
       this.isLoggedIn = isLoggedIn;
+      this.loading = false;
       if(this.isLoggedIn) {
         this.resetErrors();
         this.routeTo('home');
@@ -62,6 +65,7 @@ export class SignInComponent {
       this.handleErrors();
       return;
     }
+    this.loading = true;
     this.userService.signIn(this.userName, this.password);
   }
 
