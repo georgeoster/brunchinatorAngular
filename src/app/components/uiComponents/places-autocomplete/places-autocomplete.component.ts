@@ -18,7 +18,7 @@ export class PlacesAutocompleteComponent {
   @Input() hasError:boolean = false;
   @Input() errorMessage:string = '';
 
-  @Output() setAddress: EventEmitter<toEmit> = new EventEmitter();
+  @Output() placeSelected: EventEmitter<toEmit> = new EventEmitter();
   @ViewChild('placeInput') placeInput: any;
 
   placeName: string = '';
@@ -40,7 +40,7 @@ export class PlacesAutocompleteComponent {
     );
     this.inputAutocompleteWrapper.addListener('place_changed', () => {
       const place = this.inputAutocompleteWrapper.getPlace();
-      this.setAddress.emit(place);
+      this.placeSelected.emit(place);
     });
   }
 }
