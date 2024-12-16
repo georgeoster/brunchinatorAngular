@@ -1,0 +1,15 @@
+<div [ngClass]="{'container': !hasError, 'container-error': hasError }">
+  <div class="field">Place</div>
+  <div class="flex-row input-wrapper" [ngClass]="{'input-wrapper-error': hasError }">
+    <img src="/place.png"/>
+    <input 
+      type="text"
+      [(ngModel)]="placeName"
+      #placeInput 
+      class="input"
+      placeholder = "the name of the place?"
+      onfocus="this.placeholder=''"
+    >
+  </div>
+  <div *ngIf="hasError" class="error-message">{{errorMessage}}</div>
+</div>
