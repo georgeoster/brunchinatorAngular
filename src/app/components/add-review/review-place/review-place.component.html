@@ -1,0 +1,23 @@
+<img [src]="mainImageSrc"/>
+<div class="name">{{place.name}}</div>
+<div class="vicinity">{{place.vicinity}}</div>
+<div class="instructions">Leave your review below</div>
+<div class="card">
+  <brunch-card>
+      <brunch-star-rating
+        title="Burger"
+        (rating)="handleRating($event)"
+      />
+      <brunch-star-rating
+        title="Bloody"
+        (rating)="handleRating($event)"
+      />
+    <div class="comments-instructions">Tell us why we're awesome</div>
+    <textarea autofocus rows="7"></textarea>
+  </brunch-card>
+</div>
+<div class="flex-row button-container">
+  <brunch-button
+    title="Post Review"
+  />
+</div>

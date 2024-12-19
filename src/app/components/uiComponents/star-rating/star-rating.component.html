@@ -1,4 +1,4 @@
-<div class="flex-row">
+<div class="flex-row star-rating-container">
   <div class="title">{{title}}</div>
   <label *ngFor="let option of options" class="star" [ngClass]="{selected: selectedOption >= option}" >
     <input type="radio" [(ngModel)]="selectedOption" [value]="option" (change)="onOptionChange()"> 

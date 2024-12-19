@@ -1,6 +1,7 @@
 
 
   .card {
+    box-sizing: border-box;
     width: 80%;
     min-width: 20rem;
     margin: 10% auto 0 auto;

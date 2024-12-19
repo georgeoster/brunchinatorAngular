@@ -1,0 +1,9 @@
+.container {
+  padding: var(--xlarge);
+  margin-top: 50%;
+}
+
+h1 {
+  white-space: nowrap;
+  font-size: var(--large);
+}
