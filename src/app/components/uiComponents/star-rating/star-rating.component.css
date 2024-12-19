@@ -1,3 +1,7 @@
+.star-rating-container {
+  margin-bottom: var(--small);
+}
+
 input {
   display: none;
 }
@@ -5,6 +9,7 @@ input {
 .title {
   font-size: var(--large);
   margin-right: var(--xsmall);
+  width: 4.5rem;
 }
 
 .star {
@@ -13,6 +18,7 @@ input {
   aspect-ratio: 1;
   background: lightgray;
   clip-path: polygon(50% 0,79% 90%,2% 35%,98% 35%,21% 90%);
+  margin-right: .25em;
 }
 
 .selected {

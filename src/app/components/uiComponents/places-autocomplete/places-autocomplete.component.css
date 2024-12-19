@@ -10,12 +10,6 @@
   margin-bottom: var(--xsmall);
 }
 
-.field {
-  box-sizing: border-box;
-  padding: 0 var(--small);
-  margin-bottom: var(--xsmall);
-}
-
 .input-wrapper {
   box-sizing: border-box;
   padding: var(--small);

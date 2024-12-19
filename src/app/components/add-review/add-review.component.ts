@@ -1,27 +1,29 @@
-import { Component } from '@angular/core';
-import { TextInputComponent } from '../uiComponents/text-input/text-input.component';
-import { CardComponent } from '../uiComponents/card/card.component';
-import { StarRatingComponent } from '../uiComponents/star-rating/star-rating.component';
-import { PlacesAutocompleteComponent } from "../uiComponents/places-autocomplete/places-autocomplete.component";
+import { ChangeDetectorRef, Component } from '@angular/core';
+import { FindPlaceComponent } from "./find-place/find-place.component";
+import { NgIf } from '@angular/common';
+import { ReviewPlaceComponent } from "./review-place/review-place.component";
+import { autoCompletePlace } from '../../types/all.types';
 
 @Component({
   selector: 'brunch-add-review',
-  imports: [TextInputComponent, CardComponent, StarRatingComponent, PlacesAutocompleteComponent],
+  imports: [FindPlaceComponent, NgIf, ReviewPlaceComponent],
   templateUrl: './add-review.component.html',
   styleUrl: './add-review.component.css'
 })
+
 export class AddReviewComponent {
 
-  valueFromBrunchTextInput:string = '';
+  showFindPlace:boolean = true;
+  showReviewPlace:boolean = false;
+  place!: autoCompletePlace;
 
-  handleRating(rating:number) {
-    console.log('add review received: ' + rating);
-  }
+  constructor(private changeDetectorRef: ChangeDetectorRef){}
 
-  handlePlaceSelected(place: object) {//called when google places component emits location
-
-    console.log('handlePlaceSelected fires!');
-    console.log(place);
+  handlePlaceSelected(place: autoCompletePlace) {
+    this.showFindPlace = false;
+    this.showReviewPlace = true;
+    this.place = place;
+    this.changeDetectorRef.detectChanges();
   }
 
 }

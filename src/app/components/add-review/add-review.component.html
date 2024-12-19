@@ -1,23 +1,2 @@
-<p>add-review works!</p>
-
-<div class="card">
-  <brunch-card class="card">
-    <brunch-star-rating
-      title="Beers"
-      (rating)="handleRating($event)"
-    />
-    <div class="place-text-input-container">
-      <brunch-text-input 
-        [(text)]="valueFromBrunchTextInput"
-        placeholder="Place"  
-      />
-    </div>
-  </brunch-card>
-  <app-places-autocomplete id="Place" (placeSelected)="handlePlaceSelected($event)"/>
-</div>
-
-
-
-
-<br/>
-{{valueFromBrunchTextInput}}
+<app-find-place *ngIf="showFindPlace" (placeSelected)="handlePlaceSelected($event)"/>
+<app-review-place *ngIf="showReviewPlace" [place]="place"/>
