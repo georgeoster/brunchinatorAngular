@@ -1,39 +1,38 @@
-<div class="card">
-  <brunch-card>
-    <h1>Sign In To Your Account</h1>
-    <div class="flex-row error-message" *ngIf="signInError">
-      <img src="/error.png"/>
-      We can't find that username and password.
-    </div>
-    <brunch-text-input 
-      field="UserName"
-      [(text)]="userName"
-      placeholder="UserName" 
-      [hasError]="userNameHasErrors"
-      [errorMessage]="userNameErrorMessage" 
-    />
-    <brunch-text-input 
-      field="Password"
-      type="password"
-      icon="password"
-      [(text)]="password"
-      placeholder="Password"  
-      [hasError]="passwordHasErrors"
-      [errorMessage]="passwordErrorMessage" 
-    />
-    <div class="sign-in-button-wrapper">
-      <brunch-button
-        title="Sign In"
-        (buttonClick)="handleSignIn()"
-        [loading]="loading"
+
+<img class="top-image" src="/burger2.jpg"/>
+  <div class="title">Sign In To Your Account</div>
+  <div class="instructions">Enter your credentials below</div>
+  <div class="card">
+    <brunch-card>
+      <div class="flex-row error-message" *ngIf="signInError">
+        <img class="error-image" src="/error.png"/>
+        We can't find that username and password.
+      </div>
+      <brunch-text-input 
+        field="UserName"
+        [(text)]="userName"
+        [hasError]="userNameHasErrors"
+        [errorMessage]="userNameErrorMessage" 
       />
-    </div>
-  <div class="sign-up-message">
-    Don't have an account? <span class="sign-up-link" (click)="routeTo(ROUTE_NAMES.SIGN_UP)">Sign Up</span>
-  </div>
-  <div class="forgot-password">
-    Forgot Password?
-  </div>
-  </brunch-card>
+      <brunch-text-input 
+        field="Password"
+        type="password"
+        icon="password"
+        [(text)]="password"
+        [hasError]="passwordHasErrors"
+        [errorMessage]="passwordErrorMessage" 
+        [showForgotPassword]="true"
+      />
+      <div class="sign-in-button-wrapper">
+        <brunch-button
+          title="Sign In"
+          (buttonClick)="handleSignIn()"
+          [loading]="loading"
+        />
+      </div>
+    </brunch-card>
+</div>
+<div class="sign-up-message">
+Don't have an account? <span class="sign-up-link" (click)="routeTo(ROUTE_NAMES.SIGN_UP)">Sign Up Now!</span>
 </div>
 

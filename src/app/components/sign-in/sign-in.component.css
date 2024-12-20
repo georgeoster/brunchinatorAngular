@@ -1,57 +1,62 @@
+.top-image {
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 15rem;
+  max-height: 15rem;
+  object-fit: cover;
+}
 
+.title {
+  margin: var(--medium) 0 var(--medium) var(--xlarge);
+  font-size: var(--large);
+  font-weight: 600;
+}
 
-  .card {
-    box-sizing: border-box;
-    width: 80%;
-    min-width: 20rem;
-    margin: 10% auto 0 auto;
-  }
+.instructions {
+  font-size: var(--medium);
+  margin: var(--xsmall) 0 var(--xsmall) var(--xlarge);
+  font-size: .75rem;
+  color: gray;
+}
 
-  h1 {
-    text-align: center;
-    margin-top: 0;
-  }
-  img {
-    height: var(--large);
-    width: var(--large);
-    margin-right: var(--medium);
-  }
-  .error-message {
-    box-sizing: border-box;
-    border: .0625rem solid var(--error-color);
-    color: var(--error-color);
-    background-color: white;
-    padding: var(--medium);
-    margin-bottom: var(--medium);
-    border-radius: var(--border-radius);
-  }
+.card {
+  box-sizing: border-box;
+  margin: 0 var(--xlarge);
+}
   
-  .brunch-text-input-wrapper {
-    margin-bottom: var(--medium);
-  }
+.error-message {
+  box-sizing: border-box;
+  border: .0625rem solid var(--error-color);
+  color: var(--error-color);
+  background-color: white;
+  padding: var(--medium);
+  margin-bottom: var(--medium);
+  border-radius: var(--border-radius);
+}
 
-  .sign-in-button-wrapper {
-    margin-top: var(--large);
-  }
+.error-image {
+  height: var(--large);
+  width: var(--large);
+  margin-right: var(--medium);
+}
 
-  .sign-up-message {
-    margin: var(--large) auto 0 auto;
-    text-align: center;
-  }
+.sign-in-button-wrapper {
+  margin: var(--small) 0 var(--small) 0;
+  box-sizing: border-box;
+}
 
-  .sign-up-link {
-    color: blue;
-    cursor: pointer;
-  }
+.sign-up-message {
+  margin: var(--small) auto;
+  text-align: center;
+}
 
-  .forgot-password {
-    margin: var(--xsmall) auto 0 auto;
-    text-align: center;
-    color: blue;
-  }
+.sign-up-link {
+  color: var(--link-color);
+  cursor: pointer;
+}
 
-  @media (width >= 600px) {
-    .card {
-      width: 20rem;
-    }
+@media (width >= 600px) {
+  .card {
+    width: 20rem;
   }
+}

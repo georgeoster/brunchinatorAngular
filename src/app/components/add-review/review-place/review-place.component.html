@@ -4,20 +4,24 @@
 <div class="instructions">Leave your review below</div>
 <div class="card">
   <brunch-card>
+    <div class="star-rating-wrapper">
       <brunch-star-rating
         title="Burger"
         (rating)="handleRating($event)"
       />
+    </div>
+    <div class="star-rating-wrapper">
       <brunch-star-rating
         title="Bloody"
         (rating)="handleRating($event)"
       />
-    <div class="comments-instructions">Tell us why we're awesome</div>
+    </div>
+    <div class="comments-instructions">Tell us your thoughts</div>
     <textarea autofocus rows="7"></textarea>
+    <div class="inside-button">
+      <brunch-button
+        title="Post Review"
+      />
+    </div>
   </brunch-card>
-</div>
-<div class="flex-row button-container">
-  <brunch-button
-    title="Post Review"
-  />
 </div>

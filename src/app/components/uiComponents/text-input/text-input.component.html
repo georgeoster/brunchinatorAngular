@@ -13,6 +13,7 @@
     <img *ngIf="icon === 'password'" [src]="eyeBallIcon()" (click)="toggleShowPassword()"/>
   </div>
   <div *ngIf="hasError" class="error-message">{{errorMessage}}</div>
+  <div *ngIf="showForgotPassword" class="forgot-password">Forgot Password?</div>
 </div>
 
 

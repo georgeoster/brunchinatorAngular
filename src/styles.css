@@ -19,6 +19,7 @@ html, body {
   --large: 1.5rem;
   --xlarge: 2rem;
   --border-radius: 1rem;
+  --link-color: blue;
   background-color: var(--body-background-color);
 
 }
