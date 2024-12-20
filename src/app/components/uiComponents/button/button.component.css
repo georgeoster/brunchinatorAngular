@@ -3,7 +3,7 @@ button {
   height: 2.375rem;
   font-size: var(--medium);
   
-  margin: 0 auto;
+  margin: 0;
   border: none;
   box-sizing: border-box;
   display: flex;

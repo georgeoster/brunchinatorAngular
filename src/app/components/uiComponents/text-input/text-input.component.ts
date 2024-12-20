@@ -18,6 +18,7 @@ export class TextInputComponent {
   @Input() icon:string = 'user';
   @Input() hasError:boolean = false;
   @Input() errorMessage:string = '';
+  @Input() showForgotPassword:boolean = false;
   showPassword:boolean = false;
 
   leftIcon() {

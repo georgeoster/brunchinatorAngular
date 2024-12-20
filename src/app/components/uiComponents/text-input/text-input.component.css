@@ -56,3 +56,10 @@ input:focus::placeholder {
   color: var(--error-color);
 }
 
+.forgot-password {
+  margin-top: var(--xsmall);
+  text-align: right;
+  color: var(--link-color);
+  font-size: .75rem;
+}
+
