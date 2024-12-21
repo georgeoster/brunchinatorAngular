@@ -3,8 +3,8 @@ import { NgClass, NgFor } from '@angular/common';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { MenuService } from '../../../services/menu.service';
-import { NavigationMenuItem } from '../../../types/all.types';
-import { ROUTE_NAMES } from '../../../types/globalsConsts';
+import { NavigationMenuItem } from '../../../utils/types/all.types';
+import { ROUTE_NAMES } from '../../../utils/types/globalsConsts';
 
 @Component({
   selector: 'brunch-navigation-menu',

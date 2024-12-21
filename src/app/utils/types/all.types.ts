@@ -19,6 +19,15 @@ export type userResponse = {
   }
 }
 
+export type addReviewResponse = {
+  success:boolean,
+  user: {
+    userName: string,
+    email: string,
+    token: string
+  }
+}
+
 export type serviceError = {
   statusCode: number,
   message: string
@@ -37,4 +46,14 @@ type googlePlacesPhotosArrayObject = {
   width: number,
   html_attributions: Array<string>,
   getUrl: Function
+}
+
+export type Review = {
+  placeId: string,
+  userName: string,
+  placeName: string,
+  burger: number,
+  bloody: number,
+  words: string,
+  reviewDate: string,
 }

@@ -2,7 +2,7 @@ import { ChangeDetectorRef, Component } from '@angular/core';
 import { FindPlaceComponent } from "./find-place/find-place.component";
 import { NgIf } from '@angular/common';
 import { ReviewPlaceComponent } from "./review-place/review-place.component";
-import { autoCompletePlace } from '../../types/all.types';
+import { autoCompletePlace } from '../../utils/types/all.types';
 
 @Component({
   selector: 'brunch-add-review',
