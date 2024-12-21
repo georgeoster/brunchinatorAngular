@@ -1,7 +1,7 @@
 import { Component, ViewChild, EventEmitter, Output, OnInit, AfterViewInit, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NgIf, NgClass } from '@angular/common';
-import { autoCompletePlace } from '../../../types/all.types';
+import { autoCompletePlace } from '../../../utils/types/all.types';
 
 declare const google: any;
 

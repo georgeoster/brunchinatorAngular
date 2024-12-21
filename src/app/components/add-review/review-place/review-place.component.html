@@ -7,20 +7,21 @@
     <div class="star-rating-wrapper">
       <brunch-star-rating
         title="Burger"
-        (rating)="handleRating($event)"
+        (rating)="handleRating($event, 'burger')"
       />
     </div>
     <div class="star-rating-wrapper">
       <brunch-star-rating
         title="Bloody"
-        (rating)="handleRating($event)"
+        (rating)="handleRating($event, 'bloody')"
       />
     </div>
     <div class="comments-instructions">Tell us your thoughts</div>
-    <textarea autofocus rows="7"></textarea>
+    <textarea autofocus rows="7" [(ngModel)]="review.words"></textarea>
     <div class="inside-button">
       <brunch-button
         title="Post Review"
+        (buttonClick)="handlePostReview()"
       />
     </div>
   </brunch-card>

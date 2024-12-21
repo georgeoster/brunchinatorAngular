@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { PlacesAutocompleteComponent } from '../../uiComponents/places-autocomplete/places-autocomplete.component';
-import { autoCompletePlace } from '../../../types/all.types';
+import { autoCompletePlace } from '../../../utils/types/all.types';
 
 @Component({
   selector: 'app-find-place',

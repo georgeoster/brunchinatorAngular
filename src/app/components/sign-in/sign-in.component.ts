@@ -3,10 +3,11 @@ import { CardComponent } from '../uiComponents/card/card.component';
 import { TextInputComponent } from '../uiComponents/text-input/text-input.component';
 import { ButtonComponent } from '../uiComponents/button/button.component';
 import { Router } from '@angular/router';
-import { ROUTE_NAMES } from '../../types/globalsConsts';
+import { ROUTE_NAMES } from '../../utils/types/globalsConsts';
 import { UserService } from '../../services/user.service';
 import { Subscription } from 'rxjs';
 import { NgIf } from '@angular/common';
+import { User } from '../../utils/types/all.types';
 
 @Component({
   selector: 'brunch-sign-in',
@@ -23,14 +24,13 @@ export class SignInComponent {
   userNameErrorMessage:string = '';
   passwordErrorMessage:string = '';
   signInError:boolean = false;
-  isLoggedIn:boolean = false;
   loading:boolean = false;
 
   userServiceErrorSubscription:Subscription = new Subscription;
-  userServiceisLoggedInSubscription:Subscription = new Subscription;
+  userServiceSubscription:Subscription = new Subscription;
 
   constructor(private router: Router, private userService: UserService) {
-    this.subscribeToIsLoggedIn();
+    this.subscribeToUserService();
     this.subscribeToUserServiceErrorSubscription();
   }
 
@@ -48,14 +48,13 @@ export class SignInComponent {
     });
   }
 
-  subscribeToIsLoggedIn(){
-    this.userServiceisLoggedInSubscription = this.userService.isLoggedIn.subscribe((isLoggedIn: boolean) => {
-      this.isLoggedIn = isLoggedIn;
-      this.loading = false;
-      if(this.isLoggedIn) {
+  subscribeToUserService(){
+    this.userServiceSubscription = this.userService.user.subscribe((user: User) => {
+      if(user?.token?.length > 0) {
         this.resetErrors();
         this.routeTo('home');
       }
+      this.loading = false;
     });
   }
 
