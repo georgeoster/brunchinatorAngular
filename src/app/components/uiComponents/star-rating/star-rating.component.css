@@ -1,15 +1,16 @@
-.star-rating-container {
-  margin-bottom: var(--small);
-}
-
-input {
-  display: none;
+.container {
+  box-sizing: border-box;
+  min-height: 3rem;
 }
 
 .title {
   font-size: var(--large);
   margin-right: var(--xsmall);
   width: 4.5rem;
+}
+
+input {
+  display: none;
 }
 
 .star {
@@ -23,4 +24,8 @@ input {
 
 .selected {
   background: #F8CA00;
+}
+
+.error-message {
+  color: red;
 }

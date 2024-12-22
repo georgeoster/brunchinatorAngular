@@ -52,3 +52,7 @@ textarea {
   margin-top: var(--large);
   margin-bottom: var(--small);
 }
+
+.error-outline {
+  border: 1px solid red;
+}

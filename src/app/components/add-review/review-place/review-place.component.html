@@ -4,16 +4,11 @@
 <div class="instructions">Leave your review below</div>
 <div class="card">
   <brunch-card>
-    <div class="star-rating-wrapper">
+    <div class="star-rating-wrapper" *ngFor="let star of stars">
       <brunch-star-rating
-        title="Burger"
-        (rating)="handleRating($event, 'burger')"
-      />
-    </div>
-    <div class="star-rating-wrapper">
-      <brunch-star-rating
-        title="Bloody"
-        (rating)="handleRating($event, 'bloody')"
+        [title]="star.title"
+        (rating)="handleRating($event, star.field)"
+        [hasError]="noReviewError"
       />
     </div>
     <div class="comments-instructions">Tell us your thoughts</div>
