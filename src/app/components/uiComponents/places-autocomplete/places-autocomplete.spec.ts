@@ -1,10 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FindPlaceComponent } from './find-place.component';
+import { PlacesAutocompleteComponent } from './places-autocomplete.component';
 
 describe('FindPlaceComponent', () => {
-  let component: FindPlaceComponent;
-  let fixture: ComponentFixture<FindPlaceComponent>;
+  let component: PlacesAutocompleteComponent;
+  let fixture: ComponentFixture<PlacesAutocompleteComponent>;
 
   beforeEach(async () => {
     (window as any).google = {
@@ -24,11 +24,11 @@ describe('FindPlaceComponent', () => {
       }
     };
     await TestBed.configureTestingModule({
-      imports: [FindPlaceComponent]
+      imports: [PlacesAutocompleteComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(FindPlaceComponent);
+    fixture = TestBed.createComponent(PlacesAutocompleteComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

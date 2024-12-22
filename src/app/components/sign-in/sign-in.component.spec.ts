@@ -38,7 +38,7 @@ describe('SignInComponent', () => {
     });
 
     it('displays error messages', () => {
-      const container = fixture.debugElement.nativeElement.querySelector('div');
+      const container = fixture.debugElement.nativeElement.querySelectorAll('div')[2];
       expect(container.innerHTML).not.toContain('UserName is required');
       expect(container.innerHTML).not.toContain('Password is required');
       
