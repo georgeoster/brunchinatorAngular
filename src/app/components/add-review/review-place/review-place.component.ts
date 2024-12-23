@@ -7,11 +7,12 @@ import { UserService } from '../../../services/user.service';
 import { Subscription } from 'rxjs';
 import { FormsModule } from '@angular/forms';
 import { AddReviewService } from '../../../services/add-review.service';
-import { NgClass, NgFor, NgIf } from '@angular/common';
+import { NgFor } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-review-place',
-  imports: [CardComponent, StarRatingComponent, ButtonComponent, FormsModule, NgFor, NgIf, NgClass],
+  imports: [CardComponent, StarRatingComponent, ButtonComponent, FormsModule, NgFor],
   templateUrl: './review-place.component.html',
   styleUrl: './review-place.component.css'
 })
@@ -29,6 +30,7 @@ export class ReviewPlaceComponent {
     reviewDate: new Date().toLocaleDateString(),
   }
   userSubscription: Subscription = new Subscription;
+  successfullyAddedReviewSubscription: Subscription = new Subscription;
   noReviewError:boolean = false;
 
   stars = [
@@ -36,8 +38,9 @@ export class ReviewPlaceComponent {
     { title: 'Bloody', field: 'bloody' }
   ]
 
-  constructor(private userService: UserService, private addReviewService: AddReviewService, private changeDetectorRef: ChangeDetectorRef) {
+  constructor(private userService: UserService, private addReviewService: AddReviewService, private changeDetectorRef: ChangeDetectorRef, private router: Router) {
     this.subscribeToUser();
+    this.subscribeTosuccessfullyAddedReview();
   }
 
   subscribeToUser(){
@@ -46,8 +49,21 @@ export class ReviewPlaceComponent {
     });
   }
 
+  subscribeTosuccessfullyAddedReview() {
+    this.addReviewService.successfullyAddedReview.subscribe((success:boolean) => {
+      if (success) {
+        this.router.navigate(['home']);
+      }
+    });
+  }
+
   ngOnInit(){
     this.populateMainImageSrc()
+  }
+
+  ngOnDestroy() {
+    this.userSubscription.unsubscribe();
+    this.successfullyAddedReviewSubscription.unsubscribe();
   }
     
   populateMainImageSrc() {
@@ -71,7 +87,6 @@ export class ReviewPlaceComponent {
     this.noReviewError = false;
     if (this.formIsInvalid()) {
       this.displayErrors();
-      return;
     }
   }
 
