@@ -1,19 +1,19 @@
-<img [src]="mainImageSrc"/>
-<div class="name">{{place.name}}</div>
-<div class="vicinity">{{place.vicinity}}</div>
-<div class="instructions">Leave your review below</div>
-<div class="card">
+<img class="mainImage" [src]="mainImageSrc"/>
+<div class="container">
+  <div class="name">{{place.name}}</div>
+  <div class="vicinity">{{place.vicinity}}</div>
+  <app-error-message *ngIf="addReviewError" [message]="errorMessage"/>
+  <div class="instructions">Leave your review below</div>
   <brunch-card>
-    <div class="star-rating-wrapper" *ngFor="let star of stars">
-      <brunch-star-rating
-        [title]="star.title"
-        (rating)="handleRating($event, star.field)"
-        [hasError]="noReviewError"
-      />
-    </div>
+    <brunch-star-rating
+      *ngFor="let star of stars"
+      [title]="star.title"
+      (rating)="handleRating($event, star.field)"
+      [hasError]="noReviewError"
+    />
     <div class="comments-instructions">Tell us your thoughts</div>
     <textarea autofocus rows="7" [(ngModel)]="review.words"></textarea>
-    <div class="inside-button">
+    <div class="submit-button">
       <brunch-button
         title="Post Review"
         (buttonClick)="handlePostReview()"

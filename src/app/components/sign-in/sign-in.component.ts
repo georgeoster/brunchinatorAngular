@@ -8,10 +8,11 @@ import { UserService } from '../../services/user.service';
 import { Subscription } from 'rxjs';
 import { NgIf } from '@angular/common';
 import { User } from '../../utils/types/all.types';
+import { ErrorMessageComponent } from '../uiComponents/error-message/error-message.component';
 
 @Component({
   selector: 'brunch-sign-in',
-  imports: [CardComponent, TextInputComponent, ButtonComponent, NgIf],
+  imports: [CardComponent, TextInputComponent, ButtonComponent, NgIf, ErrorMessageComponent],
   templateUrl: './sign-in.component.html',
   styleUrl: './sign-in.component.css'
 })
@@ -25,6 +26,7 @@ export class SignInComponent {
   passwordErrorMessage:string = '';
   signInError:boolean = false;
   loading:boolean = false;
+  errorMessage:string = 'We can\'t find that username and password.';
 
   userServiceErrorSubscription:Subscription = new Subscription;
   userServiceSubscription:Subscription = new Subscription;
