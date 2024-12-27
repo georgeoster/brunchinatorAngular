@@ -4,10 +4,7 @@
   <div class="instructions">Enter your credentials below</div>
   <div class="card">
     <brunch-card>
-      <div class="flex-row error-message" *ngIf="signInError">
-        <img class="error-image" src="/error.png"/>
-        We can't find that username and password.
-      </div>
+      <app-error-message *ngIf="signInError" [message]="errorMessage"/>
       <brunch-text-input 
         field="UserName"
         [(text)]="userName"

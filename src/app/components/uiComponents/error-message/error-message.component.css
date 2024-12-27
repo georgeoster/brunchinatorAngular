@@ -1,0 +1,15 @@
+.error-message {
+  box-sizing: border-box;
+  border: .0625rem solid var(--error-color);
+  color: var(--error-color);
+  background-color: white;
+  padding: var(--medium);
+  margin-bottom: var(--medium);
+  border-radius: var(--border-radius);
+}
+
+.error-image {
+  height: var(--large);
+  width: var(--large);
+  margin-right: var(--medium);
+}

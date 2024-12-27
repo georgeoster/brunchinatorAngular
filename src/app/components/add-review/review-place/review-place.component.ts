@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component, Input } from '@angular/core';
-import { autoCompletePlace, Review, User } from '../../../utils/types/all.types';
+import { autoCompletePlace, Review, serviceError, User } from '../../../utils/types/all.types';
 import { StarRatingComponent } from '../../uiComponents/star-rating/star-rating.component';
 import { CardComponent } from '../../uiComponents/card/card.component';
 import { ButtonComponent } from '../../uiComponents/button/button.component';
@@ -7,12 +7,13 @@ import { UserService } from '../../../services/user.service';
 import { Subscription } from 'rxjs';
 import { FormsModule } from '@angular/forms';
 import { AddReviewService } from '../../../services/add-review.service';
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { Router } from '@angular/router';
+import { ErrorMessageComponent } from '../../uiComponents/error-message/error-message.component';
 
 @Component({
   selector: 'app-review-place',
-  imports: [CardComponent, StarRatingComponent, ButtonComponent, FormsModule, NgFor],
+  imports: [CardComponent, StarRatingComponent, ButtonComponent, ErrorMessageComponent, FormsModule, NgFor, NgIf],
   templateUrl: './review-place.component.html',
   styleUrl: './review-place.component.css'
 })
@@ -31,7 +32,10 @@ export class ReviewPlaceComponent {
   }
   userSubscription: Subscription = new Subscription;
   successfullyAddedReviewSubscription: Subscription = new Subscription;
+  addReviewErrorSubscription: Subscription = new Subscription;
   noReviewError:boolean = false;
+  addReviewError:boolean = false;
+  errorMessage:string = 'Something went wrong. Please try again later.'
 
   stars = [
     { title: 'Burger', field: 'burger' },
@@ -41,6 +45,7 @@ export class ReviewPlaceComponent {
   constructor(private userService: UserService, private addReviewService: AddReviewService, private changeDetectorRef: ChangeDetectorRef, private router: Router) {
     this.subscribeToUser();
     this.subscribeTosuccessfullyAddedReview();
+    this.subscribeToAddReviewError();
   }
 
   subscribeToUser(){
@@ -50,10 +55,17 @@ export class ReviewPlaceComponent {
   }
 
   subscribeTosuccessfullyAddedReview() {
-    this.addReviewService.successfullyAddedReview.subscribe((success:boolean) => {
+    this.successfullyAddedReviewSubscription = this.addReviewService.successfullyAddedReview.subscribe((success:boolean) => {
       if (success) {
         this.router.navigate(['home']);
       }
+    });
+  }
+
+  subscribeToAddReviewError() {
+    this.addReviewErrorSubscription = this.addReviewService.addReviewError.subscribe((error:serviceError) => {
+      this.addReviewError = true;
+      this.changeDetectorRef.detectChanges();
     });
   }
 
@@ -64,6 +76,7 @@ export class ReviewPlaceComponent {
   ngOnDestroy() {
     this.userSubscription.unsubscribe();
     this.successfullyAddedReviewSubscription.unsubscribe();
+    this.addReviewErrorSubscription.unsubscribe();
   }
     
   populateMainImageSrc() {
