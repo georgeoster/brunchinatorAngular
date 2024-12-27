@@ -10,6 +10,7 @@ import { AddReviewService } from '../../../services/add-review.service';
 import { NgFor, NgIf } from '@angular/common';
 import { Router } from '@angular/router';
 import { ErrorMessageComponent } from '../../uiComponents/error-message/error-message.component';
+import { getImageForPlace } from '../../../utils/placeUtils';
 
 @Component({
   selector: 'app-review-place',
@@ -80,7 +81,7 @@ export class ReviewPlaceComponent {
   }
     
   populateMainImageSrc() {
-    this.mainImageSrc = this.place?.photos?.[0]?.getUrl({'maxWidth': 600, 'maxHeight': 600});
+    this.mainImageSrc = getImageForPlace(this.place);
     this.review.placeId = this.place?.place_id;
     this.review.placeName = this.place?.name;
   }
