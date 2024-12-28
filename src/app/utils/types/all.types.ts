@@ -57,3 +57,12 @@ export type Review = {
   words: string,
   reviewDate: string,
 }
+
+export type Place = {
+  placeId: string,
+  placeName: string,
+  burger: number | null,
+  bloody: number | null,
+  numberOfReviews: number,
+  overallRating: number,
+}

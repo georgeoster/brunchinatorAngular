@@ -11,10 +11,11 @@ import { FormsModule } from '@angular/forms';
 export class StarRatingComponent {
 
   @Input() title:string = '';
+  @Input() showTitle:boolean = true;
   @Output() rating = new EventEmitter();
   @Input() hasError:boolean = false;
   errorMessage:string = 'At least one rating must be done.'
-  selectedOption: number = 0;
+  @Input() selectedOption: number = 0;
   options = [1,2,3,4,5];
 
   constructor(private changeDetectorRef: ChangeDetectorRef){}
@@ -23,4 +24,5 @@ export class StarRatingComponent {
     this.changeDetectorRef.detectChanges();
     this.rating.emit(this.selectedOption);
   }
+
 }
