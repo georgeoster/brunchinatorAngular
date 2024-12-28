@@ -1,0 +1,10 @@
+<div [style]="cardStyle" class="place-card">
+  <div class="name">{{placeName()}}</div>
+  <div class="stars flex-row">
+    <brunch-star-rating 
+      [selectedOption]="starRating"
+      [showTitle]="false"
+    />
+    <div class="number-of-reviews">{{numberOfReviews()}} reviews</div>
+  </div>
+</div>
