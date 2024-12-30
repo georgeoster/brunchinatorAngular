@@ -1,4 +1,7 @@
+.error-message {
+  margin: var(--xlarge);
+}
+
 .placeCard {
-  width: 80%;
-  margin: auto;
+  margin: var(--xlarge) var(--xlarge) 0 var(--xlarge);
 }

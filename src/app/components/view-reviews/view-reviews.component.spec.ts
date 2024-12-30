@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { provideHttpClient } from '@angular/common/http';
 import { ViewReviewsComponent } from './view-reviews.component';
+import { GetPlacesService } from '../../services/get-places.service';
 
 describe('ViewReviewsComponent', () => {
   let component: ViewReviewsComponent;
@@ -8,7 +9,11 @@ describe('ViewReviewsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ViewReviewsComponent]
+      imports: [ViewReviewsComponent],
+      providers: [
+        GetPlacesService,
+        provideHttpClient()
+      ]
     })
     .compileComponents();
 
