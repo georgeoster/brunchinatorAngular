@@ -28,6 +28,11 @@ export type addReviewResponse = {
   }
 }
 
+export type getPlacesResponse = {
+  success:boolean,
+  places: Array<Place>
+}
+
 export type serviceError = {
   statusCode: number,
   message: string

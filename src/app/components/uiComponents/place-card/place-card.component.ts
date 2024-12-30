@@ -10,19 +10,12 @@ import { StarRatingComponent } from '../star-rating/star-rating.component';
   styleUrl: './place-card.component.css'
 })
 export class PlaceCardComponent {
-  @Input() place:Place = {
-    placeId: 'ChIJlT7VlTzGxokRCBFKum31X-I',
-    placeName: 'Rex at the Royal',
-    bloody: 4.333333333333333,
-    burger: 3.3333333333333335,
-    numberOfReviews: 3,
-    overallRating: 3.83,
-  }
-  starRating:number;
+  @Input() place!:Place;
+  starRating!:number;
   mainImageSrc:string = '';
   cardStyle: string = '';
 
-  constructor() {
+  ngOnInit() {
     this.populateMainImageSrc();
     const rating = this.place?.overallRating ?? 0;
     this.starRating = Math.round(rating) ?? 0;
