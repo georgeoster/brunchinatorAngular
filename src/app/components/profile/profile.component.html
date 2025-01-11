@@ -1,1 +1,5 @@
-<p>profile works!</p>
+<input type="file" (change)="imageUploadHandler($event)" name="imageInput" id="imageInput" class="hidden">
+<img [src]="profilePicture" height="300"/>
+<label for="imageInput">
+  Change Picture
+</label>
