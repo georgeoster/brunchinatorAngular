@@ -1,0 +1,9 @@
+<input type="file" (change)="imageUploadHandler($event)" name="imageInput" id="imageInput" class="hidden">
+<div class="profile-picture">
+  <img [src]="profilePicture" (error)="handleProfilePictureError($event)"/>
+</div>
+<label for="imageInput">
+  <div class="label-button">
+    <brunch-button title="Change Picture"/>
+  </div>
+</label>

@@ -3,7 +3,7 @@ import { HomeComponent } from './components/home/home.component';
 import { AddReviewComponent } from './components/add-review/add-review.component';
 import { EditReviewComponent } from './components/edit-review/edit-review.component';
 import { PlaceComponent } from './components/place/place.component';
-import { ProfileComponent } from './components/profile/profile.component';
+import { ProfileComponent } from './components/profile/profile/profile.component';
 import { ViewReviewsComponent } from './components/view-reviews/view-reviews.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
