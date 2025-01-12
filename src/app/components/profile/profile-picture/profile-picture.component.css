@@ -1,0 +1,21 @@
+.profile-picture {
+  box-sizing: border-box;
+  margin-bottom: var(--medium);
+  height: 15rem;
+}
+
+.profile-picture > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+
+}
+
+.label-button {
+  pointer-events: none;
+  width: 15rem;
+  white-space: nowrap;
+  margin: auto;
+  box-sizing: border-box;
+}

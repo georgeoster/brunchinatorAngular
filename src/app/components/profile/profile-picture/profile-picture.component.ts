@@ -1,17 +1,18 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
-import { UploadImageService } from '../../services/upload-image.service';
-import { s3Host } from '../../utils/http/consts';
-import { UserService } from '../../services/user.service';
+import { UploadImageService } from '../../../services/upload-image.service';
+import { s3Host } from '../../../utils/http/consts';
+import { UserService } from '../../../services/user.service';
 import { Subscription } from 'rxjs';
-import { User } from '../../utils/types/all.types';
+import { User } from '../../../utils/types/all.types';
+import { ButtonComponent } from '../../uiComponents/button/button.component';
 
 @Component({
-  selector: 'brunch-profile',
-  imports: [],
-  templateUrl: './profile.component.html',
-  styleUrl: './profile.component.css'
+  selector: 'brunch-profile-picture',
+  imports: [ButtonComponent],
+  templateUrl: './profile-picture.component.html',
+  styleUrl: './profile-picture.component.css'
 })
-export class ProfileComponent {
+export class ProfilePictureComponent {
 
   imageToUpload!:File;
   user!:User;
@@ -44,6 +45,13 @@ export class ProfileComponent {
   ngOnDestroy() {
     this.userServiceSubscription.unsubscribe();
     this.uploadImageServiceSubscription.unsubscribe();
+  }
+
+  handleProfilePictureError(e:Event){
+    if ((e.target as HTMLImageElement).src !== '/defaultProfile.jpg') {
+      (e.target as HTMLImageElement).src = '/defaultProfile.jpg';
+    }
+    return;
   }
 
   updateProfilePicture(){
