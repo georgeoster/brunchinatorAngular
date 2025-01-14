@@ -1,12 +1,14 @@
 .container {
   box-sizing: border-box;
   min-height: 3rem;
+  color: var(--font-color);
 }
 
 .title {
   font-size: var(--large);
   margin-right: var(--xsmall);
   width: 4.5rem;
+  color: var(--font-color-action);
 }
 
 input {
@@ -17,13 +19,14 @@ input {
   width: var(--large);
   min-width: var(--large);
   aspect-ratio: 1;
-  background: lightgray;
+  /* background: rgb(104, 103, 103); */
+  background: var(--body-background-color);
   clip-path: polygon(50% 0,79% 90%,2% 35%,98% 35%,21% 90%);
   margin-right: .25em;
 }
 
 .selected {
-  background: #F8CA00;
+  background: var(--font-color-action);
 }
 
 .error-message {

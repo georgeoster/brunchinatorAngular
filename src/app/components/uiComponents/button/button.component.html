@@ -1,5 +1,10 @@
 <button 
-  [ngClass]="{border: showBorder, 'not-loading':!loading, loading:loading}"
+  [ngClass]="{
+    border: showBorder, 
+    'not-loading':!loading, 
+    loading:loading,
+    'call-to-action': callToAction
+    }"
   (click)="clickHandler()"
 >
   <span *ngIf="!loading">{{title}}</span>

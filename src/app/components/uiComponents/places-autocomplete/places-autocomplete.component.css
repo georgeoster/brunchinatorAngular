@@ -2,21 +2,24 @@
   box-sizing: border-box;
   padding-bottom: 1.15625rem;
   margin-bottom: var(--xsmall);
+  color: var(--font-color);
 }
 
 .container-error {
   box-sizing: border-box;
   padding-bottom: 0;
   margin-bottom: var(--xsmall);
+  color: var(--font-color);
 }
 
 .input-wrapper {
   box-sizing: border-box;
   padding: var(--small);
-  border: .0625rem solid var(--card-border-color);
+  border: .0625rem solid var(--font-color);
   border-radius: var(--border-radius);
   width: 100%;
   font-size: var(--medium);
+  color: var(--font-color);
 }
 
 img {
@@ -30,6 +33,11 @@ input {
   flex-grow: 1;
   padding-left: var(--small);
   background-color: transparent;
+  color: var(--font-color);
+}
+
+input::placeholder {
+  color: var(--font-color-action);
 }
 
 input:focus-visible {

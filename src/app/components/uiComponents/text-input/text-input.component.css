@@ -2,6 +2,7 @@
   box-sizing: border-box;
   padding-bottom: 1.15625rem;
   margin-bottom: var(--xsmall);
+  color: var(--font-color);
 }
 
 .container-error {
@@ -19,7 +20,7 @@
 .input-wrapper {
   box-sizing: border-box;
   padding: var(--small);
-  border: .0625rem solid var(--card-border-color);
+  border: .0625rem solid var(--font-color-action);
   border-radius: var(--border-radius);
   width: 100%;
   font-size: var(--medium);
@@ -36,6 +37,7 @@ input {
   flex-grow: 1;
   padding-left: var(--small);
   background-color: transparent;
+  color: var(--font-color);
 }
 
 input:focus-visible {

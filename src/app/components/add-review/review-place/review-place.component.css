@@ -13,33 +13,36 @@
 .name {
   font-size: var(--large);
   font-weight: 600;
+  color: var(--font-color-action);
 }
 
 .vicinity {
   font-size: var(--medium);
   margin: var(--xsmall) 0 var(--medium) 0;
+  color: var(--font-color-action);
 }
 
 .instructions {
   font-size: var(--medium);
   margin: var(--xsmall) 0 var(--xsmall) 0;
   font-size: .75rem;
-  color: gray;
+  color: var(--font-color);
 }
 
 .comments-instructions {
   font-size: var(--medium);
   font-size: .75rem;
-  color: gray;
+  color: var(--font-color-action);
 }
 
 textarea {
   background-color: transparent;
-  border: 1px solid var(--card-border-color);
+  border: 1px solid var(--font-color-action);
   outline: none;
   width: 100%;
   margin-top: var(--xsmall);
   box-sizing: border-box;
+  color: var(--font-color);
 }
 
 .submit-button {

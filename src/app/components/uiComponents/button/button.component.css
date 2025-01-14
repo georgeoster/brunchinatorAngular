@@ -2,6 +2,7 @@ button {
   background-color: transparent;
   height: 2.375rem;
   font-size: var(--medium);
+  color: var(--font-color-action);
   
   margin: 0;
   border: none;
@@ -11,6 +12,12 @@ button {
   align-items: center;
   justify-content: center;
   transition: all .15s ease;
+}
+
+.call-to-action {
+  background-color: var(--font-color-action);
+  color: var(--body-background-color);
+  border-radius: var(--border-radius);
 }
 
 .not-loading {

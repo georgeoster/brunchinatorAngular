@@ -1,6 +1,7 @@
 .container {
   padding: var(--xlarge);
   margin-top: 50%;
+  color: var(--font-color-action);
 }
 
 h1 {
