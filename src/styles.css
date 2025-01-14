@@ -5,12 +5,15 @@ html, body {
   height: 100%;
   width: 100%;
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Helvetica, sans-serif;
   font-size: 16px;
-  --font-color: black;
-  --card-background-color: GhostWhite;
-  --card-border-color: black;
-  --body-background-color: white;
+  --font-color: #9c988d;
+  --font-color-helper: #9198a1;
+  /*--card-background-color: black;/* #282828;*/
+  --card-background-color: #365355;
+  --card-border-color: #c08630;
+  --font-color-action: #c08630;
+  --body-background-color: #1f4042;
   --error-color: red;
   --header-height: 4.4213875rem;/* 70.7422px @ font-size of 16px*/
   --xsmall: .25rem;
@@ -18,8 +21,8 @@ html, body {
   --medium: 1rem;
   --large: 1.5rem;
   --xlarge: 2rem;
-  --border-radius: .5rem;
-  --link-color: blue;
+  --border-radius: .75rem;
+  --link-color: #4493f8;
   background-color: var(--body-background-color);
 
 }

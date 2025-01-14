@@ -8,7 +8,7 @@
 .hamburgerClosed:before,
 .hamburgerClosed:after,
 .hamburgerClosed div {
-  background: var(--font-color);
+  background: var(--font-color-action);
   content: "";
   display: block;
   height: .12rem;
