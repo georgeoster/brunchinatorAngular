@@ -5,6 +5,7 @@ import { GetPlacesService } from '../../services/get-places.service';
 import { Subscription } from 'rxjs';
 import { NgFor, NgIf } from '@angular/common';
 import { ErrorMessageComponent } from '../uiComponents/error-message/error-message.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'brunch-view-reviews',
@@ -20,7 +21,7 @@ export class ViewReviewsComponent {
   getPlacesError:boolean = false;
   errorMessage:string = 'Something went wrong. Please try again later.'
 
-  constructor(private getPlacesService: GetPlacesService, private changeDetectorRef: ChangeDetectorRef) {
+  constructor(private getPlacesService: GetPlacesService, private changeDetectorRef: ChangeDetectorRef, private router: Router) {
     this.subscribeToGetPlacesSubscription();
     this.subscribeToGetPlacesError();
   }
@@ -42,6 +43,12 @@ export class ViewReviewsComponent {
       console.error(error);
       this.getPlacesError = true;
       this.changeDetectorRef.detectChanges();
+    });
+  }
+
+  navigateTo(place: Place) {
+    this.router.navigateByUrl('/place', {
+      state: { place, }
     });
   }
 }
