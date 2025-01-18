@@ -2,5 +2,5 @@
   <app-error-message *ngIf="getPlacesError" [message]="errorMessage"/>
 </div>
 <div *ngFor="let place of places" class="placeCard">
-  <app-place-card [place]="place"/>
+  <app-place-card [place]="place" (click)="navigateTo(place)"/>
 </div>
