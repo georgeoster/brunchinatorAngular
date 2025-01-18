@@ -1,7 +1,7 @@
-<div class="container">
+<div [ngClass]="{container: !small, containerSmall: small}">
   <div class="flex-row">
-    <div *ngIf="showTitle" class="title">{{title}}</div>
-    <label *ngFor="let option of options" class="star" [ngClass]="{selected: selectedOption >= option}" >
+    <div *ngIf="showTitle" [ngClass]="{title: !small, titleSmall: small}">{{title}}</div>
+    <label *ngFor="let option of options" [ngClass]="{selected: selectedOption && selectedOption >= option, star: !small, starSmall: small}" >
       <input type="radio" [(ngModel)]="selectedOption" [value]="option" (change)="onOptionChange()"> 
     </label>
   </div>

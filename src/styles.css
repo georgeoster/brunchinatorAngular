@@ -8,6 +8,7 @@ html, body {
   font-family: Helvetica, sans-serif;
   font-size: 16px;
   --font-color: #9c988d;
+  --font-color-card: #9d957c;
   --font-color-helper: #9198a1;
   /*--card-background-color: black;/* #282828;*/
   --card-background-color: #365355;

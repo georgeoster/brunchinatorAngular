@@ -1,3 +1,10 @@
 .picture-container {
   margin: var(--xlarge);
 }
+
+.title {
+  margin: 2rem auto var(--small) auto;
+  width: min-content;
+  font-size: var(--xlarge);
+  color: var(--font-color-action);
+}

@@ -33,6 +33,11 @@ export type getPlacesResponse = {
   places: Array<Place>
 }
 
+export type getReviewsByUserNameResponse = {
+  success:boolean,
+  reviews: Array<Review>
+}
+
 export type serviceError = {
   statusCode: number,
   message: string
