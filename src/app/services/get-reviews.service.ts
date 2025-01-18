@@ -12,6 +12,9 @@ export class GetReviewsService {
   private reviewsByUserNameSubject = new BehaviorSubject<Array<Review>>([]);
   reviewsByUserName = this.reviewsByUserNameSubject.asObservable();
 
+  private reviewsByPlaceIdSubject = new BehaviorSubject<Array<Review>>([]);
+  reviewsByPlaceId = this.reviewsByPlaceIdSubject.asObservable();
+
   private getReviewsErrorSubject = new Subject<serviceError>();
   getReviewsError = this.getReviewsErrorSubject.asObservable();
 
@@ -31,6 +34,26 @@ export class GetReviewsService {
     ))
     .subscribe((response:getReviewsByUserNameResponse) => {
       this.reviewsByUserNameSubject.next(response.reviews);
+    }
+  );
+  }
+
+  getReviewsByPlaceId(placeId:string) {console.log('calling with ' + placeId);
+    this.http.get<getReviewsByUserNameResponse>(`${host}/reviews/byPlaceId/${placeId}`)
+    .pipe(catchError(
+      (error: HttpErrorResponse) => {
+        const serviceError = {
+          statusCode: error.status,
+          message: error.error.message,
+        }
+        this.getReviewsErrorSubject.next(serviceError);
+        return throwError(() => new Error('something went wrong. please try again later.'));
+      }
+    ))
+    .subscribe((response:getReviewsByUserNameResponse) => {
+      console.log('we have received a response');
+      console.log(response);
+      this.reviewsByPlaceIdSubject.next(response.reviews);
     }
   );
   }

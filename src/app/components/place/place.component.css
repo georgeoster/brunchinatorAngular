@@ -1,0 +1,31 @@
+.mainImage {
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 15rem;
+  max-height: 15rem;
+  object-fit: cover;
+}
+
+.container {
+  margin: var(--medium) var(--xlarge);
+}
+
+.name {
+  font-size: var(--large);
+  font-weight: 600;
+  color: var(--font-color-action);
+}
+
+.vicinity {
+  font-size: var(--medium);
+  margin: var(--xsmall) 0 var(--medium) 0;
+  color: var(--font-color);
+}
+
+.title {
+  font-size: var(--large);
+  margin-top: 2rem;
+  margin-bottom: var(--small);
+  color: var(--font-color-action);
+  white-space: nowrap;;
+}

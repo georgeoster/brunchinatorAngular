@@ -1,1 +1,8 @@
-<p>place works!</p>
+<img class="mainImage" [src]="mainImageSrc"/>
+<div class="container">
+  <div class="name">{{place.placeName}}</div>
+  <!-- <div class="vicinity">{{place.vicinity}}</div> -->
+  <div class="vicinity">52 South 2nd Street, Philadelphia</div>
+  <div class="title">What People Are Saying</div>
+  <brunch-place-reviews [placeId]="place.placeId"/>
+</div>
