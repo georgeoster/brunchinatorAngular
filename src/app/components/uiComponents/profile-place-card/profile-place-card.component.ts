@@ -11,7 +11,6 @@ export class ProfilePlaceCardComponent {
   @Input() placeName:string = 'Place';
   @Input() placeId:string = '1';
   mainImageSrc:string = '';
-  cardStyle: string = '';
 
   ngOnInit() {
     this.populateMainImageSrc();

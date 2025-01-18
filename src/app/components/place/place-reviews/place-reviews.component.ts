@@ -2,13 +2,14 @@ import { Component, Input } from '@angular/core';
 import { Review } from '../../../utils/types/all.types';
 import { GetReviewsService } from '../../../services/get-reviews.service';
 import { StarRatingComponent } from '../../uiComponents/star-rating/star-rating.component';
+import { PlaceUserCardComponent } from '../../uiComponents/place-user-card/place-user-card.component';
 import { Subscription } from 'rxjs';
 import { NgFor, NgIf } from '@angular/common';
 
 
 @Component({
   selector: 'brunch-place-reviews',
-  imports: [NgFor, NgIf, StarRatingComponent],
+  imports: [NgFor, NgIf, StarRatingComponent, PlaceUserCardComponent],
   templateUrl: './place-reviews.component.html',
   styleUrl: './place-reviews.component.css'
 })
