@@ -1,0 +1,23 @@
+<div class="flex-row container" *ngFor="let review of reviews">
+  <brunch-profile-place-card 
+    [placeId]="review.placeId"
+    [placeName]="review.placeName"
+  />
+  <div class="flex-column body">
+    <brunch-star-rating
+      *ngIf="review.burger"
+      title="Burger"
+      [small]="true"
+      [selectedOption]="review.burger"
+    />
+    <brunch-star-rating
+      *ngIf="review.bloody"
+      title="Bloody"
+      [small]="true"
+      [selectedOption]="review.bloody"
+    />
+    <div class="date">{{formatDate(review.reviewDate)}}</div>
+    <div class="words">{{review.words}}</div>
+    
+  </div>
+</div>

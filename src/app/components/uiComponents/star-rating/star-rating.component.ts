@@ -14,8 +14,9 @@ export class StarRatingComponent {
   @Input() showTitle:boolean = true;
   @Output() rating = new EventEmitter();
   @Input() hasError:boolean = false;
+  @Input() small:boolean = false;
   errorMessage:string = 'At least one rating must be done.'
-  @Input() selectedOption: number = 0;
+  @Input() selectedOption: number | null = 0;
   options = [1,2,3,4,5];
 
   constructor(private changeDetectorRef: ChangeDetectorRef){}
