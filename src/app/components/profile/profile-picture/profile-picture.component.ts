@@ -5,6 +5,7 @@ import { UserService } from '../../../services/user.service';
 import { Subscription } from 'rxjs';
 import { User } from '../../../utils/types/all.types';
 import { ButtonComponent } from '../../uiComponents/button/button.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'brunch-profile-picture',
@@ -16,18 +17,21 @@ export class ProfilePictureComponent {
 
   imageToUpload!:File;
   user!:User;
+  signedInUser:User | null = null;
   profilePicture!:String;
   userServiceSubscription:Subscription = new Subscription();
   uploadImageServiceSubscription:Subscription = new Subscription();
 
-  constructor(private uploadImageService: UploadImageService, private userService: UserService, private changeDetectorRef: ChangeDetectorRef){
+  constructor(private uploadImageService: UploadImageService, private userService: UserService, private changeDetectorRef: ChangeDetectorRef, public router: Router){
+    const currentNav = this.router.getCurrentNavigation();
+    this.user = currentNav?.extras.state?.['user'];
     this.subscribeToUserService();
     this.subscribeToUploadImageService();
   }
 
   subscribeToUserService(){
     this.userServiceSubscription = this.userService.user.subscribe((user: User) => {
-      this.user = user;
+      this.signedInUser = user;
       this.profilePicture = `${s3Host}/${user.userName}`;
     });
   }
