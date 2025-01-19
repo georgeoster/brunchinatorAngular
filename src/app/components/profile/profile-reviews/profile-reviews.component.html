@@ -2,6 +2,7 @@
   <brunch-profile-place-card 
     [placeId]="review.placeId"
     [placeName]="review.placeName"
+    (click)="navigateToPlace(review)"
   />
   <div class="flex-column body">
     <brunch-star-rating
