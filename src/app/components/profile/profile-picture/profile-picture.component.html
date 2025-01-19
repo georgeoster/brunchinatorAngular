@@ -4,6 +4,11 @@
 </div>
 <label for="imageInput">
   <div class="label-button">
-    <brunch-button title="Change Picture" *ngIf="profileIsSignedInUser"/>
+    <brunch-button
+      *ngIf="profileIsSignedInUser"
+      title="Change Picture"
+      [callToAction]="true"
+      [showBorder]="false"
+    />
   </div>
 </label>
