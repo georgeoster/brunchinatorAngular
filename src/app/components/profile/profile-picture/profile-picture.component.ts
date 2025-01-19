@@ -5,10 +5,11 @@ import { UserService } from '../../../services/user.service';
 import { Subscription } from 'rxjs';
 import { User } from '../../../utils/types/all.types';
 import { ButtonComponent } from '../../uiComponents/button/button.component';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'brunch-profile-picture',
-  imports: [ButtonComponent],
+  imports: [ButtonComponent, NgIf],
   templateUrl: './profile-picture.component.html',
   styleUrl: './profile-picture.component.css'
 })
@@ -16,7 +17,7 @@ export class ProfilePictureComponent {
 
   @Input() userName!:string;
   imageToUpload!:File;
-  signedInUser:User | null = null;
+  signedInUser!:User;
   profilePicture!:String;
   userServiceSubscription:Subscription = new Subscription();
   uploadImageServiceSubscription:Subscription = new Subscription();
@@ -69,5 +70,9 @@ export class ProfilePictureComponent {
   imageUploadHandler(e:any) {
     this.imageToUpload = e.target.files[0];
     this.updateProfilePicture();
+  }
+
+  get profileIsSignedInUser() {
+    return this.userName = this.signedInUser?.userName;
   }
 }
