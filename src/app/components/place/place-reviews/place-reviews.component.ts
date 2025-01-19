@@ -5,6 +5,7 @@ import { StarRatingComponent } from '../../uiComponents/star-rating/star-rating.
 import { PlaceUserCardComponent } from '../../uiComponents/place-user-card/place-user-card.component';
 import { Subscription } from 'rxjs';
 import { NgFor, NgIf } from '@angular/common';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -20,7 +21,7 @@ export class PlaceReviewsComponent {
   getReviewsServiceSubscription:Subscription = new Subscription(); 
   months:Array<string> = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
-  constructor(private getReviewsService: GetReviewsService) {
+  constructor(private getReviewsService: GetReviewsService, private router: Router) {
     this.subscribeToGetReviewsService();
   }
 
@@ -40,6 +41,10 @@ export class PlaceReviewsComponent {
   formatDate(s:string) {
     const d = new Date(s); 
     return `${this.months[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`;
+  }
+
+  navigateToProfileFor(review:Review) {
+    this.router.navigateByUrl(`/profile/${review.userName}`);
   }
 
 }
