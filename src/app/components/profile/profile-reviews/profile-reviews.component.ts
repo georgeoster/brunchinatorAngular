@@ -5,6 +5,7 @@ import { Review, User } from '../../../utils/types/all.types';
 import { GetReviewsService } from '../../../services/get-reviews.service';
 import { ProfilePlaceCardComponent } from "../../uiComponents/profile-place-card/profile-place-card.component";
 import { StarRatingComponent } from '../../uiComponents/star-rating/star-rating.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'brunch-profile-reviews',
@@ -20,7 +21,7 @@ export class ProfileReviewsComponent {
   getReviewsServiceSubscription:Subscription = new Subscription();
   months:Array<string> = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
-  constructor(private getReviewsService: GetReviewsService) {
+  constructor(private getReviewsService: GetReviewsService, private router:Router) {
   }
 
   ngOnInit() {
@@ -44,5 +45,10 @@ export class ProfileReviewsComponent {
   ngOnDestroy() {
     this.userServiceSubscription.unsubscribe();
     this.getReviewsServiceSubscription.unsubscribe();
+  }
+
+  navigateToPlace(review:Review) {
+    console.log('called');
+    this.router.navigateByUrl(`/place/${review.placeId}`);
   }
 }
