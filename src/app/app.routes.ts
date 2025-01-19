@@ -13,6 +13,7 @@ export const routes: Routes = [
   { path: 'addReview', component: AddReviewComponent },
   { path: 'editReview', component: EditReviewComponent },
   { path: 'place', component: PlaceComponent },
+  { path: 'place/:placeId', component: PlaceComponent },
   { path: 'profile/:userName', component: ProfileComponent },
   { path: 'viewReviews', component: ViewReviewsComponent },
   { path: 'signIn', component: SignInComponent },

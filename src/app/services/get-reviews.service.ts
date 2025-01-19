@@ -38,7 +38,7 @@ export class GetReviewsService {
   );
   }
 
-  getReviewsByPlaceId(placeId:string) {console.log('calling with ' + placeId);
+  getReviewsByPlaceId(placeId:string) {
     this.http.get<getReviewsByUserNameResponse>(`${host}/reviews/byPlaceId/${placeId}`)
     .pipe(catchError(
       (error: HttpErrorResponse) => {
@@ -51,8 +51,6 @@ export class GetReviewsService {
       }
     ))
     .subscribe((response:getReviewsByUserNameResponse) => {
-      console.log('we have received a response');
-      console.log(response);
       this.reviewsByPlaceIdSubject.next(response.reviews);
     }
   );

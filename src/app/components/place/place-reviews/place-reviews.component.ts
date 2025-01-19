@@ -26,7 +26,6 @@ export class PlaceReviewsComponent {
   }
 
   ngOnInit(){
-    console.log('making the call to get the reviews');
     this.getReviewsService.getReviewsByPlaceId(this.placeId);
   }
 
