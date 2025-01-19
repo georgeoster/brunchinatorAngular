@@ -1,11 +1,10 @@
-import { ChangeDetectorRef, Component } from '@angular/core';
+import { ChangeDetectorRef, Component, Input } from '@angular/core';
 import { UploadImageService } from '../../../services/upload-image.service';
 import { s3Host } from '../../../utils/http/consts';
 import { UserService } from '../../../services/user.service';
 import { Subscription } from 'rxjs';
 import { User } from '../../../utils/types/all.types';
 import { ButtonComponent } from '../../uiComponents/button/button.component';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'brunch-profile-picture',
@@ -15,16 +14,17 @@ import { Router } from '@angular/router';
 })
 export class ProfilePictureComponent {
 
+  @Input() userName!:string;
   imageToUpload!:File;
-  user!:User;
   signedInUser:User | null = null;
   profilePicture!:String;
   userServiceSubscription:Subscription = new Subscription();
   uploadImageServiceSubscription:Subscription = new Subscription();
 
-  constructor(private uploadImageService: UploadImageService, private userService: UserService, private changeDetectorRef: ChangeDetectorRef, public router: Router){
-    const currentNav = this.router.getCurrentNavigation();
-    this.user = currentNav?.extras.state?.['user'];
+  constructor(private uploadImageService: UploadImageService, private userService: UserService, private changeDetectorRef: ChangeDetectorRef){
+  }
+
+  ngOnInit() {
     this.subscribeToUserService();
     this.subscribeToUploadImageService();
   }
@@ -32,7 +32,8 @@ export class ProfilePictureComponent {
   subscribeToUserService(){
     this.userServiceSubscription = this.userService.user.subscribe((user: User) => {
       this.signedInUser = user;
-      this.profilePicture = `${s3Host}/${user.userName}`;
+      console.log('at this moment the username is ' + this.userName);
+      this.profilePicture = `${s3Host}/${this.userName}`;
     });
   }
 
@@ -41,7 +42,7 @@ export class ProfilePictureComponent {
       //TODO force re-getting of image
       this.profilePicture = '';
       this.changeDetectorRef.detectChanges();
-      this.profilePicture = `${s3Host}/${this.user.userName}`;
+      this.profilePicture = `${s3Host}/${this.userName}`;
       this.changeDetectorRef.detectChanges();
     });
   }
@@ -61,7 +62,7 @@ export class ProfilePictureComponent {
   updateProfilePicture(){
     const toUpload = new FormData();
     toUpload.append('image', this.imageToUpload);
-    toUpload.append('userName', this.user.userName);
+    toUpload.append('userName', this.userName);
     this.uploadImageService.uploadImage(toUpload);
   }
 

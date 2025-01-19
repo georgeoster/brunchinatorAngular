@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ProfilePictureComponent } from '../profile-picture/profile-picture.component';
 import { ProfileReviewsComponent } from "../profile-reviews/profile-reviews.component";
 
@@ -12,6 +13,14 @@ import { ProfileReviewsComponent } from "../profile-reviews/profile-reviews.comp
 })
 export class ProfileComponent {
 
-  constructor(){}
+  userName!:string;
+
+  constructor(private activatedRoute: ActivatedRoute){}
+
+  ngOnInit() {
+    this.activatedRoute.paramMap.subscribe((params) => {
+      this.userName = params.get('userName') ?? '';
+    });
+  }
 
 }
