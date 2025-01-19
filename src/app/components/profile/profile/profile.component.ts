@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProfilePictureComponent } from '../profile-picture/profile-picture.component';
 import { ProfileReviewsComponent } from "../profile-reviews/profile-reviews.component";
+import { UserService } from '../../../services/user.service';
+import { Subscription } from 'rxjs';
+import { User } from '../../../utils/types/all.types';
 
 
 
@@ -12,15 +15,37 @@ import { ProfileReviewsComponent } from "../profile-reviews/profile-reviews.comp
   styleUrl: './profile.component.css'
 })
 export class ProfileComponent {
-
+  userServiceSubscription:Subscription = new Subscription();
+  paramMapSubscription: Subscription = new Subscription();
+  signedInUser!:User;
   userName!:string;
+  profileIsSignedInUser:boolean = false;
 
-  constructor(private activatedRoute: ActivatedRoute){}
+  constructor(private activatedRoute: ActivatedRoute, private userService:UserService){
+    this.subscribeToUserService();
+  }
 
   ngOnInit() {
-    this.activatedRoute.paramMap.subscribe((params) => {
+    this.paramMapSubscription = this.activatedRoute.paramMap.subscribe((params) => {
       this.userName = params.get('userName') ?? '';
+      this.profileIsSignedInUser = this.userName == this.signedInUser?.userName;
     });
+  }
+
+  ngOnDestroy() {
+    this.userServiceSubscription.unsubscribe();
+    this.paramMapSubscription.unsubscribe();
+  }
+
+  subscribeToUserService(){
+    this.userServiceSubscription = this.userService.user.subscribe((user: User) => {
+      this.signedInUser = user;
+      this.profileIsSignedInUser = this.userName == this.signedInUser?.userName;
+    });
+  }
+
+  get title() {
+    return this.profileIsSignedInUser ? `Places I have been`: `Places ${this.userName} has been`;
   }
 
 }

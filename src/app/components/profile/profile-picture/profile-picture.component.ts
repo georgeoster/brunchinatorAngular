@@ -1,9 +1,7 @@
 import { ChangeDetectorRef, Component, Input } from '@angular/core';
 import { UploadImageService } from '../../../services/upload-image.service';
 import { s3Host } from '../../../utils/http/consts';
-import { UserService } from '../../../services/user.service';
 import { Subscription } from 'rxjs';
-import { User } from '../../../utils/types/all.types';
 import { ButtonComponent } from '../../uiComponents/button/button.component';
 import { NgIf } from '@angular/common';
 
@@ -17,24 +15,16 @@ export class ProfilePictureComponent {
 
   @Input() userName!:string;
   imageToUpload!:File;
-  signedInUser!:User;
+  @Input() profileIsSignedInUser:boolean = false;
   profilePicture!:String;
-  userServiceSubscription:Subscription = new Subscription();
   uploadImageServiceSubscription:Subscription = new Subscription();
 
-  constructor(private uploadImageService: UploadImageService, private userService: UserService, private changeDetectorRef: ChangeDetectorRef){
+  constructor(private uploadImageService: UploadImageService, private changeDetectorRef: ChangeDetectorRef){
   }
 
   ngOnInit() {
-    this.subscribeToUserService();
+    this.profilePicture = `${s3Host}/${this.userName}`;
     this.subscribeToUploadImageService();
-  }
-
-  subscribeToUserService(){
-    this.userServiceSubscription = this.userService.user.subscribe((user: User) => {
-      this.signedInUser = user;
-      this.profilePicture = `${s3Host}/${this.userName}`;
-    });
   }
 
   subscribeToUploadImageService(){
@@ -48,7 +38,6 @@ export class ProfilePictureComponent {
   }
 
   ngOnDestroy() {
-    this.userServiceSubscription.unsubscribe();
     this.uploadImageServiceSubscription.unsubscribe();
   }
 
@@ -69,9 +58,5 @@ export class ProfilePictureComponent {
   imageUploadHandler(e:any) {
     this.imageToUpload = e.target.files[0];
     this.updateProfilePicture();
-  }
-
-  get profileIsSignedInUser() {
-    return this.userName = this.signedInUser?.userName;
   }
 }

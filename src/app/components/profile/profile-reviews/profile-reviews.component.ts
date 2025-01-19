@@ -48,7 +48,6 @@ export class ProfileReviewsComponent {
   }
 
   navigateToPlace(review:Review) {
-    console.log('called');
     this.router.navigateByUrl(`/place/${review.placeId}`);
   }
 }
