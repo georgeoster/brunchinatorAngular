@@ -33,6 +33,12 @@ export type getPlacesResponse = {
   places: Array<Place>
 }
 
+export type getPlaceByPlaceIdResponse = {
+  success:boolean,
+  placeExists:boolean,
+  place: Place
+}
+
 export type getReviewsByUserNameResponse = {
   success:boolean,
   reviews: Array<Review>

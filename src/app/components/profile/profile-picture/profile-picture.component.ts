@@ -33,7 +33,6 @@ export class ProfilePictureComponent {
   subscribeToUserService(){
     this.userServiceSubscription = this.userService.user.subscribe((user: User) => {
       this.signedInUser = user;
-      console.log('at this moment the username is ' + this.userName);
       this.profilePicture = `${s3Host}/${this.userName}`;
     });
   }

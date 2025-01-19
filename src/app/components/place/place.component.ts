@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Place } from '../../utils/types/all.types';
 import { getImageFromPlaceId } from '../../utils/placeUtils';
 import { PlaceReviewsComponent } from './place-reviews/place-reviews.component';
+import { GetPlacesService } from '../../services/get-places.service';
 
 @Component({
   selector: 'brunch-place',
@@ -12,18 +13,43 @@ import { PlaceReviewsComponent } from './place-reviews/place-reviews.component';
 })
 export class PlaceComponent {
   place!: Place;
+  placeId:string = '';
   mainImageSrc:string = '';
 
-  constructor(public router: Router) {
-    const currentNav = this.router.getCurrentNavigation();
-    this.place = currentNav?.extras.state?.['place'];
+  constructor(public router: Router, private activatedRoute:ActivatedRoute, private getPlacesService:GetPlacesService) {
+    this.activatedRoute.paramMap.subscribe((params) => {
+      this.placeId = params.get('placeId') ?? '';
+      if(this.placeId !== '') {
+        this.populatePlaceFromRouteParam();
+      } else {
+        this.populatePlaceFromState();
+      }
+    });
   }
 
-  ngOnInit(){
-    this.populateMainImageSrc()
+  populatePlaceFromRouteParam() {
+    this.getPlacesService.placeByPlaceId.subscribe((place:Place) => {
+      this.place = place;
+      this.populateMainImageSrc();
+    });
+    this.getPlacesService.getPlaceByPlaceId(this.placeId);
+  }
+
+  populatePlaceFromState() {
+    const currentNav = this.router.getCurrentNavigation();
+    this.place = currentNav?.extras.state?.['place'];
+    this.populateMainImageSrc();
+  }
+
+  get placeName() {
+    return this.place?.placeName ?? '';
+  }
+
+  get placeIdToPass() {
+    return this.place?.placeId ?? this.placeId;
   }
 
   async populateMainImageSrc() {
-    this.mainImageSrc =  await getImageFromPlaceId(this.place?.placeId);
+    this.mainImageSrc =  await getImageFromPlaceId(this.placeIdToPass);
   }
 }
