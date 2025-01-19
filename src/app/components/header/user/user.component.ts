@@ -42,8 +42,6 @@ export class UserComponent {
   }
 
   navigateToProfile(route:string){
-    this.router.navigateByUrl(`/${route}`, {
-      state: { user: this.user, }
-    });
+    this.router.navigateByUrl(`/${route}/${this.user.userName}`);
   }
 }

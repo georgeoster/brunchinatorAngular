@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import { UserService } from '../../../services/user.service';
+import { Component, Input } from '@angular/core';
 import { NgFor, NgIf } from '@angular/common';
 import { Subscription } from 'rxjs';
 import { Review, User } from '../../../utils/types/all.types';
@@ -15,29 +14,23 @@ import { StarRatingComponent } from '../../uiComponents/star-rating/star-rating.
 })
 export class ProfileReviewsComponent {
 
-  user!:User;
+  @Input() userName!:string;
   reviews!:Array<Review>;
   userServiceSubscription:Subscription = new Subscription();
   getReviewsServiceSubscription:Subscription = new Subscription();
   months:Array<string> = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
-  constructor(private userService: UserService, private getReviewsService: GetReviewsService) {
+  constructor(private getReviewsService: GetReviewsService) {
+  }
+
+  ngOnInit() {
     this.subscribeToGetReviewsService();
-    this.subscribeToUserService();
+    this.getReviewsService.getReviewsByUserName(this.userName);
   }
 
   formatDate(s:string) {
     const d = new Date(s); 
     return `${this.months[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`;
-  }
-
-  subscribeToUserService() {
-    this.userServiceSubscription = this.userService.user.subscribe((user:User) => {
-      if(user?.userName?.length > 0) {
-        this.user = user;
-        this.getReviewsService.getReviewsByUserName(user.userName);
-      }
-    })
   }
 
   subscribeToGetReviewsService() {
