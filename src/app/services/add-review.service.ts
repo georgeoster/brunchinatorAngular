@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, catchError, Subject, throwError } from 'rxjs';
-import { addReviewResponse, Review, serviceError } from '../utils/types/all.types';
+import { addReviewResponse, CreateReview, serviceError } from '../utils/types/all.types';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { host } from '../utils/http/consts';
 
@@ -17,7 +17,7 @@ export class AddReviewService {
 
   constructor(private http:HttpClient) { }
 
-  addReview(review:Review) {
+  addReview(review:CreateReview) {
     this.http.post<addReviewResponse>(`${host}/reviews/createReview`, review)
     .pipe(catchError(
       (error: HttpErrorResponse) => {
