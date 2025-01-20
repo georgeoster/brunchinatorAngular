@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component, Input } from '@angular/core';
-import { autoCompletePlace, Review, serviceError, User } from '../../../utils/types/all.types';
+import { autoCompletePlace, CreateReview, Review, serviceError, User } from '../../../utils/types/all.types';
 import { StarRatingComponent } from '../../uiComponents/star-rating/star-rating.component';
 import { CardComponent } from '../../uiComponents/card/card.component';
 import { ButtonComponent } from '../../uiComponents/button/button.component';
@@ -22,10 +22,11 @@ export class ReviewPlaceComponent {
 
   @Input() place!: autoCompletePlace;
   mainImageSrc:string = '';
-  review:Review = {
+  review:CreateReview = {
     placeId: '',
     userName: '',
     placeName: '',
+    vicinity: '',
     burger: null,
     bloody: null,
     words: '',
@@ -84,6 +85,7 @@ export class ReviewPlaceComponent {
     this.mainImageSrc = getImageForPlace(this.place);
     this.review.placeId = this.place?.place_id;
     this.review.placeName = this.place?.name;
+    this.review.vicinity = this.place?.vicinity;
   }
 
   formIsInvalid() {
