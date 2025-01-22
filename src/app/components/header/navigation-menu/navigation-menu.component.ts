@@ -18,9 +18,9 @@ export class NavigationMenuComponent {
   showMenu:boolean = false;
   menuItems:Array<NavigationMenuItem> = [
     {icon: 'home', label: 'Home', route: ROUTE_NAMES.HOME},
-    {icon: 'home', label: 'View Reviews', route: ROUTE_NAMES.VIEW_REVIEWS },
-    {icon: 'home', label: 'Register', route: ROUTE_NAMES.SIGN_UP },
-    {icon: 'home', label: 'Sign In', route: ROUTE_NAMES.SIGN_IN },
+    {icon: 'review', label: 'View Reviews', route: ROUTE_NAMES.VIEW_REVIEWS },
+    {icon: 'register', label: 'Register', route: ROUTE_NAMES.SIGN_UP },
+    {icon: 'user', label: 'Sign In', route: ROUTE_NAMES.SIGN_IN },
   ];
   menuServiceSubscription:Subscription = new Subscription;
   userServiceSubscription:Subscription = new Subscription;
@@ -35,14 +35,18 @@ export class NavigationMenuComponent {
     this.userServiceSubscription.unsubscribe();
   }
 
+  iconFor(item:NavigationMenuItem) {
+    return `/${item.icon}.png`;
+  }
+
   subscribeToUserService(){
     this.userServiceSubscription = this.userService.user.subscribe((user: User) => {
       if(user?.token?.length > 0) {
         this.menuItems = [
           {icon: 'home', label: 'Home', route: ROUTE_NAMES.HOME},
-          {icon: 'home', label: 'Add Review', route: ROUTE_NAMES.ADD_REVIEW},
-          {icon: 'home', label: 'View Reviews', route: ROUTE_NAMES.VIEW_REVIEWS },
-          {icon: 'home', label: 'Profile', route: `${ROUTE_NAMES.PROFILE}/${user.userName}` },
+          {icon: 'addReview', label: 'Add Review', route: ROUTE_NAMES.ADD_REVIEW},
+          {icon: 'review', label: 'View Reviews', route: ROUTE_NAMES.VIEW_REVIEWS },
+          {icon: 'user', label: 'Profile', route: `${ROUTE_NAMES.PROFILE}/${user.userName}` },
         ];
       }
     });
