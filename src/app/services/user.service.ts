@@ -43,4 +43,27 @@ export class UserService {
     }
   );
   }
+
+  register(userName:string, password:string, email:string) {
+    const credentials = {
+      email,
+      userName,
+      password
+    }
+    this.http.post<userResponse>(`${host}/users/createUser`, credentials)
+    .pipe(catchError(
+      (error: HttpErrorResponse) => {
+        const serviceError = {
+          statusCode: error.status,
+          message: error.error.message,
+        }
+        this.userServiceErrorSubject.next(serviceError);
+        return throwError(() => new Error('something went wrong. please try again later.'));
+      }
+    ))
+    .subscribe((response:userResponse) => {
+      this.userSubject.next(response.user);
+    }
+  );
+  }
 }

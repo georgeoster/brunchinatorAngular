@@ -25,6 +25,7 @@ export class TextInputComponent {
     switch(this.icon) {
     case 'user': return '/user.png';
     case 'password': return '/password.png';
+    case 'email': return '/email.png';
     default: return ''; 
     }
   }

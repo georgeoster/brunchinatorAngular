@@ -15,7 +15,7 @@ html, body {
   --card-border-color: #c08630;
   --font-color-action: #c08630;
   --body-background-color: #1f4042;
-  --error-color: red;
+  --error-color: #dd1f1fd5;
   --header-height: 4.4213875rem;/* 70.7422px @ font-size of 16px*/
   --xsmall: .25rem;
   --small: .5rem;

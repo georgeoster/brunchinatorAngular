@@ -1,6 +1,6 @@
 .container {
   box-sizing: border-box;
-  padding-bottom: 1.15625rem;
+  padding-bottom: 1.6571rem;
   margin-bottom: var(--xsmall);
   color: var(--font-color);
 }
@@ -9,6 +9,7 @@
   box-sizing: border-box;
   padding-bottom: 0;
   margin-bottom: var(--xsmall);
+  color: var(--font-color-action);
 }
 
 .field {
@@ -54,7 +55,7 @@ input:focus::placeholder {
 
 .error-message {
   box-sizing: border-box;
-  padding: 0 var(--small);
+  padding: var(--xsmall) var(--small);
   color: var(--error-color);
 }
 

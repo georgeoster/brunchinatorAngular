@@ -1,1 +1,42 @@
-<p>sign-up works!</p>
+
+<img class="top-image" src="/burger2.jpg"/>
+  <div class="title">Create Your Account</div>
+  <div class="instructions">Enter your information below</div>
+  <div class="card">
+    <brunch-card>
+      <app-error-message *ngIf="registerError" [message]="errorMessage"/>
+      <brunch-text-input 
+        field="Email"
+        [(text)]="email"
+        icon="email"
+        [hasError]="emailHasErrors"
+        [errorMessage]="emailErrorMessage" 
+      />
+      <brunch-text-input 
+        field="UserName"
+        [(text)]="userName"
+        [hasError]="userNameHasErrors"
+        [errorMessage]="userNameErrorMessage" 
+      />
+      <brunch-text-input 
+        field="Password"
+        type="password"
+        icon="password"
+        [(text)]="password"
+        [hasError]="passwordHasErrors"
+        [errorMessage]="passwordErrorMessage" 
+        [showForgotPassword]="false"
+      />
+      <div class="sign-in-button-wrapper">
+        <brunch-button
+          title="Create Account"
+          (buttonClick)="handleSignIn()"
+          [loading]="loading"
+          [callToAction]="true"
+          [showBorder]="false"
+        />
+      </div>
+    </brunch-card>
+</div>
+
+

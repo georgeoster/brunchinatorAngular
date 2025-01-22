@@ -1,0 +1,64 @@
+.top-image {
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 15rem;
+  max-height: 15rem;
+  object-fit: cover;
+}
+
+.title {
+  margin: var(--medium) 0 var(--medium) var(--xlarge);
+  font-size: var(--large);
+  font-weight: 600;
+  color: var(--font-color-action);
+}
+
+.instructions {
+  font-size: var(--medium);
+  margin: var(--xsmall) 0 var(--xsmall) var(--xlarge);
+  font-size: .75rem;
+  color: var(--font-color-helper);
+}
+
+.card {
+  box-sizing: border-box;
+  margin: 0 var(--xlarge);
+}
+  
+.error-message {
+  box-sizing: border-box;
+  border: .0625rem solid var(--error-color);
+  color: var(--error-color);
+  background-color: white;
+  padding: var(--medium);
+  margin-bottom: var(--medium);
+  border-radius: var(--border-radius);
+}
+
+.error-image {
+  height: var(--large);
+  width: var(--large);
+  margin-right: var(--medium);
+}
+
+.sign-in-button-wrapper {
+  margin: var(--small) 0;
+  box-sizing: border-box;
+}
+
+.sign-up-message {
+  margin: var(--small) auto;
+  text-align: center;
+  color: var(--font-color);
+}
+
+.sign-up-link {
+  color: var(--link-color);
+  cursor: pointer;
+}
+
+@media (width >= 600px) {
+  .card {
+    width: 20rem;
+  }
+}
