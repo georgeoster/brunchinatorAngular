@@ -6,6 +6,7 @@ import { Subscription } from 'rxjs';
 import { User } from '../../../utils/types/all.types';
 import { Router } from '@angular/router';
 import { ROUTE_NAMES } from '../../../utils/types/globalsConsts';
+import { MenuService } from '../../../services/menu.service';
 
 @Component({
   selector: 'brunch-user',
@@ -20,7 +21,7 @@ export class UserComponent {
   userSubscription: Subscription = new Subscription;
   user: User = {userName: '', email: '', token: ''};
 
-  constructor(private userService: UserService, private router: Router) {
+  constructor(private userService:UserService, private menuService:MenuService, private router:Router) {
     this.subscribeToUser();
   }
 
@@ -38,10 +39,12 @@ export class UserComponent {
   }
 
   routeTo(route:string){
+    this.menuService.closeMenu();
     this.router.navigate([route])
   }
 
   navigateToProfile(route:string){
+    this.menuService.closeMenu();
     this.router.navigateByUrl(`/${route}/${this.user.userName}`);
   }
 }
