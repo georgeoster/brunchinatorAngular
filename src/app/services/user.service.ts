@@ -19,6 +19,8 @@ export class UserService {
   });
   user = this.userSubject.asObservable();
 
+  isLoggedIn:boolean = false;
+
 
   constructor(private http:HttpClient) { }
 
@@ -40,6 +42,9 @@ export class UserService {
     ))
     .subscribe((response:userResponse) => {
       this.userSubject.next(response.user);
+      if(response.user?.token?.length > 0) {
+        this.isLoggedIn = true;
+      }
     }
   );
   }
@@ -63,6 +68,9 @@ export class UserService {
     ))
     .subscribe((response:userResponse) => {
       this.userSubject.next(response.user);
+      if(response.user?.token?.length > 0) {
+        this.isLoggedIn = true;
+      }
     }
   );
   }

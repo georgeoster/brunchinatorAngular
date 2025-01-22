@@ -7,10 +7,11 @@ import { ProfileComponent } from './components/profile/profile/profile.component
 import { ViewReviewsComponent } from './components/view-reviews/view-reviews.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { authGuard } from './auth.guard';
 
 export const routes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: 'addReview', component: AddReviewComponent },
+  { path: 'addReview', component: AddReviewComponent, canActivate: [authGuard] },
   { path: 'editReview', component: EditReviewComponent },
   { path: 'place', component: PlaceComponent },
   { path: 'place/:placeId', component: PlaceComponent },
