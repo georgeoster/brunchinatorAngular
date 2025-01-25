@@ -4,5 +4,6 @@ export const ROUTE_NAMES = {
   VIEW_REVIEWS: 'viewReviews',
   PROFILE: 'profile',
   SIGN_UP: 'signUp',
-  SIGN_IN: 'signIn'
+  SIGN_IN: 'signIn',
+  FORGOT_PASSWORD: 'forgotPassword',
 }
