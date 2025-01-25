@@ -19,6 +19,11 @@ export type userResponse = {
   }
 }
 
+export type sendResetPasswordEmailResponse = {
+  success:boolean,
+  response: any,
+}
+
 export type addReviewResponse = {
   success:boolean,
   user: {
