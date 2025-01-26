@@ -95,4 +95,30 @@ export class UserService {
     }
   );
   }
+
+  resetPassword(userName:string, password:string, resetCode:number) {
+    const body = {
+      userName,
+      password,
+      resetCode,
+    }
+    this.http.post<userResponse>(`${host}/users/updateUserPassword`, body)
+    .pipe(catchError(
+      (error: HttpErrorResponse) => {
+        const serviceError = {
+          statusCode: error.status,
+          message: error.error.message,
+        }
+        this.userServiceErrorSubject.next(serviceError);
+        return throwError(() => new Error('something went wrong. please try again later.'));
+      }
+    ))
+    .subscribe((response:userResponse) => {
+      this.userSubject.next(response.user);
+      if(response.user?.token?.length > 0) {
+        this.isLoggedIn = true;
+      }
+    }
+  );
+  }
 }
