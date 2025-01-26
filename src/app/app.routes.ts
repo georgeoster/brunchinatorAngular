@@ -9,6 +9,7 @@ import { SignInComponent } from './components/sign-in/sign-in.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { authGuard } from './auth.guard';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 
 export const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -21,5 +22,6 @@ export const routes: Routes = [
   { path: 'signIn', component: SignInComponent },
   { path: 'signUp', component: SignUpComponent },
   { path: 'forgotPassword', component: ForgotPasswordComponent },
+  { path: 'resetPassword', component: ResetPasswordComponent },
   { path: '**', redirectTo: 'home', pathMatch: 'full'}
 ];

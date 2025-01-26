@@ -31,6 +31,7 @@ export class TextInputComponent {
     case 'user': return '/user.png';
     case 'password': return '/password.png';
     case 'email': return '/email.png';
+    case 'number': return '/number.png';
     default: return ''; 
     }
   }

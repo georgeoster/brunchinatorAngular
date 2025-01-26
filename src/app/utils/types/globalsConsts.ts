@@ -6,4 +6,5 @@ export const ROUTE_NAMES = {
   SIGN_UP: 'signUp',
   SIGN_IN: 'signIn',
   FORGOT_PASSWORD: 'forgotPassword',
+  RESET_PASSWORD: 'resetPassword',
 }

@@ -7,22 +7,29 @@ import { ROUTE_NAMES } from '../../utils/types/globalsConsts';
 import { UserService } from '../../services/user.service';
 import { Subscription } from 'rxjs';
 import { NgIf } from '@angular/common';
+import { User } from '../../utils/types/all.types';
 import { ErrorMessageComponent } from '../uiComponents/error-message/error-message.component';
 
 @Component({
-  selector: 'app-forgot-password',
+  selector: 'app-reset-password',
   imports: [CardComponent, TextInputComponent, ButtonComponent, NgIf, ErrorMessageComponent],
-  templateUrl: './forgot-password.component.html',
-  styleUrl: './forgot-password.component.css'
+  templateUrl: './reset-password.component.html',
+  styleUrl: './reset-password.component.css'
 })
-export class ForgotPasswordComponent {
+export class ResetPasswordComponent {
   ROUTE_NAMES = ROUTE_NAMES;
+  securityCode:string = '';
   userName:string = '';
+  password:string = '';
+  securityCodeHasErrors:boolean = false;
   userNameHasErrors:boolean = false;
+  passwordHasErrors:boolean = false;
+  securityCodeErrorMessage:string = '';
   userNameErrorMessage:string = '';
-  sendEmailError:boolean = false;
+  passwordErrorMessage:string = '';
+  registerError:boolean = false;
   loading:boolean = false;
-  errorMessage:string = 'There was a problem sending you the reset password email. Please try again.';
+  errorMessage:string = 'We had a problem resetting your password. Please try again.';
 
   userServiceErrorSubscription:Subscription = new Subscription;
   userServiceSubscription:Subscription = new Subscription;
@@ -34,48 +41,54 @@ export class ForgotPasswordComponent {
 
   ngOnDestroy() {
     this.userServiceErrorSubscription.unsubscribe();
+    this.userServiceSubscription.unsubscribe();
   }
 
   subscribeToUserServiceErrorSubscription(){
     this.userServiceErrorSubscription = this.userService.userServiceError.subscribe((error) => {
       this.resetErrors();
       this.loading = false;
-      if(error?.statusCode === 401) {
-        this.sendEmailError = true;
+      if(error?.statusCode ) {
+        this.registerError = true;
+        this.errorMessage = error.message ?? 'We had a problem resetting your password. Please try again.';
       }
     });
   }
 
   subscribeToUserService(){
-    this.userServiceSubscription = this.userService.resetPasswordEmailSent.subscribe((sent: Boolean) => {
-      if(sent) {
+    this.userServiceSubscription = this.userService.user.subscribe((user: User) => {
+      if(user?.token?.length > 0) {
         this.resetErrors();
-        this.routeTo(ROUTE_NAMES.RESET_PASSWORD);
-      } else {
-        this.sendEmailError = true;
+        this.routeTo(ROUTE_NAMES.HOME);
       }
       this.loading = false;
     });
   }
 
-  sendEmail(){
+  resetPassword(){
     this.resetErrors();
     if (this.formIsInvalid()) {
       this.handleErrors();
       return;
     }
     this.loading = true;
-    this.userService.sendResetPasswordEmail(this.userName);
+    const resetCode = parseInt(this.securityCode);
+    this.userService.resetPassword(this.userName, this.password, resetCode);
   }
 
   resetErrors(){
     this.userNameHasErrors = false;
     this.userNameErrorMessage = '';
-    this.sendEmailError = false;
+    this.passwordHasErrors = false;
+    this.passwordErrorMessage = '';
+    this.securityCodeHasErrors = false;
+    this.securityCodeErrorMessage = '';
+    this.registerError = false;
   }
 
   formIsInvalid(){
     if (this.userName?.length < 1) return true;
+    if (this.password?.length < 1) return true;
     return false;
   }
 
@@ -83,6 +96,14 @@ export class ForgotPasswordComponent {
     if (this.userName?.length < 1) {
       this.userNameHasErrors = true;
       this.userNameErrorMessage = 'UserName is required';
+    }
+    if (this.password?.length < 1) {
+      this.passwordHasErrors = true;
+      this.passwordErrorMessage = 'Password is required';
+    }
+    if (this.securityCode?.length < 1) {
+      this.securityCodeHasErrors = true;
+      this.securityCodeErrorMessage = 'Security Code is required';
     }
   }
 
