@@ -5,7 +5,8 @@ import { Review, User } from '../../../utils/types/all.types';
 import { GetReviewsService } from '../../../services/get-reviews.service';
 import { ProfilePlaceCardComponent } from "../../uiComponents/profile-place-card/profile-place-card.component";
 import { StarRatingComponent } from '../../uiComponents/star-rating/star-rating.component';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { UserService } from '../../../services/user.service';
 
 @Component({
   selector: 'brunch-profile-reviews',
@@ -16,12 +17,15 @@ import { Router } from '@angular/router';
 export class ProfileReviewsComponent {
 
   @Input() userName!:string;
+  @Input() profileIsSignedInUser:boolean = false;
   reviews!:Array<Review>;
-  userServiceSubscription:Subscription = new Subscription();
   getReviewsServiceSubscription:Subscription = new Subscription();
   months:Array<string> = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
-  constructor(private getReviewsService: GetReviewsService, private router:Router) {
+  constructor(
+    private getReviewsService: GetReviewsService, 
+    private router:Router,
+  ) {
   }
 
   ngOnInit() {
@@ -43,11 +47,14 @@ export class ProfileReviewsComponent {
   }
 
   ngOnDestroy() {
-    this.userServiceSubscription.unsubscribe();
     this.getReviewsServiceSubscription.unsubscribe();
   }
 
   navigateToPlace(review:Review) {
     this.router.navigateByUrl(`/place/${review.placeId}`);
+  }
+
+  get title() {
+    return this.profileIsSignedInUser ? `Places I have been`: `Places ${this.userName} has been`;
   }
 }

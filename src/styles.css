@@ -10,12 +10,11 @@ html, body {
   --font-color: #9c988d;
   --font-color-card: #9d957c;
   --font-color-helper: #9198a1;
-  /*--card-background-color: black;/* #282828;*/
   --card-background-color: #365355;
   --card-border-color: #c08630;
   --font-color-action: #c08630;
   --body-background-color: #1f4042;
-  --error-color: #dd1f1fd5;
+  --error-color: #e7deded5;
   --header-height: 4.4213875rem;/* 70.7422px @ font-size of 16px*/
   --xsmall: .25rem;
   --small: .5rem;
