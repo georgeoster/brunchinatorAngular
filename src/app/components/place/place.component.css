@@ -7,7 +7,7 @@
 }
 
 .container {
-  margin: var(--medium) var(--xlarge);
+  margin: var(--xsmall) var(--xlarge);
 }
 
 .name {

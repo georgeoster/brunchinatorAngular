@@ -49,6 +49,10 @@ export class PlaceComponent {
     return this.place?.placeId ?? this.placeId;
   }
 
+  get vicinity() {
+    return this.place?.vicinity ?? '';
+  }
+
   async populateMainImageSrc() {
     this.mainImageSrc =  await getImageFromPlaceId(this.placeIdToPass);
   }

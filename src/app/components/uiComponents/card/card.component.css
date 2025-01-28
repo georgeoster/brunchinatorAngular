@@ -3,5 +3,5 @@ section {
   background-color: var(--card-background-color);
   border: .0625rem solid var(--card-border-color);
   border-radius: var(--border-radius);
-  padding: var(--medium)
+  padding: var(--large) var(--medium)
 }

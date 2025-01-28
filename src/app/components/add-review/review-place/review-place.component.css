@@ -7,7 +7,7 @@
 }
 
 .container {
-  margin: var(--medium) var(--xlarge);
+  margin: var(--xsmall) var(--xlarge);
 }
 
 .name {
@@ -42,7 +42,8 @@ textarea {
   width: 100%;
   margin-top: var(--xsmall);
   box-sizing: border-box;
-  color: var(--font-color);
+  color: var(--font-color-action);
+  padding: var(--small);
 }
 
 .submit-button {

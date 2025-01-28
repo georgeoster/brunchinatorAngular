@@ -38,7 +38,7 @@ input {
   flex-grow: 1;
   padding-left: var(--small);
   background-color: transparent;
-  color: var(--font-color);
+  color: var(--font-color-action);
 }
 
 input:focus-visible {

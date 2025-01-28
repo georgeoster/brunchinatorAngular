@@ -43,9 +43,4 @@ export class ProfileComponent {
       this.profileIsSignedInUser = this.userName == this.signedInUser?.userName;
     });
   }
-
-  get title() {
-    return this.profileIsSignedInUser ? `Places I have been`: `Places ${this.userName} has been`;
-  }
-
 }
