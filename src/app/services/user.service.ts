@@ -32,7 +32,7 @@ export class UserService {
       userName,
       password
     }
-    this.http.post<userResponse>(`${host}/users/login`, credentials)
+    this.http.post<userResponse>(`${host}/users/api/v1/login`, credentials)
     .pipe(catchError(
       (error: HttpErrorResponse) => {
         const serviceError = {
@@ -58,7 +58,7 @@ export class UserService {
       userName,
       password
     }
-    this.http.post<userResponse>(`${host}/users/createUser`, credentials)
+    this.http.post<userResponse>(`${host}/users/api/v1/createUser`, credentials)
     .pipe(catchError(
       (error: HttpErrorResponse) => {
         const serviceError = {
@@ -79,7 +79,7 @@ export class UserService {
   }
 
   sendResetPasswordEmail(userName:string) {
-    this.http.post<sendResetPasswordEmailResponse>(`${host}/users/sendResetPasswordEmail/${userName}`, {})
+    this.http.post<sendResetPasswordEmailResponse>(`${host}/users/api/v1/sendResetPasswordEmail/${userName}`, {})
     .pipe(catchError(
       (error: HttpErrorResponse) => {
         const serviceError = {
@@ -102,7 +102,7 @@ export class UserService {
       password,
       resetCode,
     }
-    this.http.post<userResponse>(`${host}/users/updateUserPassword`, body)
+    this.http.post<userResponse>(`${host}/users/api/v1/updateUserPassword`, body)
     .pipe(catchError(
       (error: HttpErrorResponse) => {
         const serviceError = {

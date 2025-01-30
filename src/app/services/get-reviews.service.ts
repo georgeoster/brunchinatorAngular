@@ -21,7 +21,7 @@ export class GetReviewsService {
   constructor(private http:HttpClient) { }
 
   getReviewsByUserName(username:string) {
-    this.http.get<getReviewsByUserNameResponse>(`${host}/reviews/byUserName/${username}`)
+    this.http.get<getReviewsByUserNameResponse>(`${host}/reviews/api/v1/byUserName/${username}`)
     .pipe(catchError(
       (error: HttpErrorResponse) => {
         const serviceError = {
@@ -39,7 +39,7 @@ export class GetReviewsService {
   }
 
   getReviewsByPlaceId(placeId:string) {
-    this.http.get<getReviewsByUserNameResponse>(`${host}/reviews/byPlaceId/${placeId}`)
+    this.http.get<getReviewsByUserNameResponse>(`${host}/reviews/api/v1/byPlaceId/${placeId}`)
     .pipe(catchError(
       (error: HttpErrorResponse) => {
         const serviceError = {

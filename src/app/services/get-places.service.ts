@@ -21,7 +21,7 @@ export class GetPlacesService {
   constructor(private http:HttpClient) {}
 
   getPlaces() {
-    this.http.get<getPlacesResponse>(`${host}/places/all`)
+    this.http.get<getPlacesResponse>(`${host}/places/api/v1/all`)
     .pipe(catchError(
       (error: HttpErrorResponse) => {
         const serviceError = {
@@ -39,7 +39,7 @@ export class GetPlacesService {
   }
 
   getPlaceByPlaceId(placeId:string) {
-    this.http.get<getPlaceByPlaceIdResponse>(`${host}/places/byPlaceId/${placeId}`)
+    this.http.get<getPlaceByPlaceIdResponse>(`${host}/places/api/v1/byPlaceId/${placeId}`)
     .pipe(catchError(
       (error: HttpErrorResponse) => {
         const serviceError = {

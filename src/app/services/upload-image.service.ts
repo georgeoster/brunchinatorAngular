@@ -14,7 +14,7 @@ export class UploadImageService {
   constructor(private http:HttpClient) { }
 
   uploadImage(body:any) {
-    this.http.post(`${host}/users/userProfilePicture`, body)
+    this.http.post(`${host}/users/api/v1/userProfilePicture`, body)
     .pipe(catchError(
       (error: HttpErrorResponse) => {
         const serviceError = {

@@ -18,7 +18,7 @@ export class AddReviewService {
   constructor(private http:HttpClient) { }
 
   addReview(review:CreateReview) {
-    this.http.post<addReviewResponse>(`${host}/reviews/createReview`, review)
+    this.http.post<addReviewResponse>(`${host}/reviews/api/v1/createReview`, review)
     .pipe(catchError(
       (error: HttpErrorResponse) => {
         const serviceError = {
