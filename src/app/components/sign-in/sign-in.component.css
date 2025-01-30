@@ -44,8 +44,6 @@
 .sign-in-button-wrapper {
   margin: var(--small) 0;
   box-sizing: border-box;
-  /* display: flex;
-  flex-direction: row-reverse; */
 }
 
 .sign-up-message {
@@ -60,7 +58,29 @@
 }
 
 @media (width >= 600px) {
+  .top-image {
+    min-width: 20rem;
+    max-width: 20rem;
+    min-height: 15rem;
+    max-height: 15rem;
+    object-fit: cover;
+    display: block;
+    margin: var(--large)  auto 0 auto;
+    border-radius: var(--border-radius);
+  }
   .card {
     width: 20rem;
+    margin: 0 auto;
+  }
+  .title {
+    margin: var(--medium) auto;
+    width: 20rem;
+    white-space: nowrap;
+  }
+  .instructions {
+    font-size: var(--medium);
+    margin: var(--xsmall) auto;
+    width: 20rem;
+    white-space: nowrap;
   }
 }
