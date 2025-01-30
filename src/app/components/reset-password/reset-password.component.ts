@@ -27,7 +27,7 @@ export class ResetPasswordComponent {
   securityCodeErrorMessage:string = '';
   userNameErrorMessage:string = '';
   passwordErrorMessage:string = '';
-  registerError:boolean = false;
+  resetError:boolean = false;
   loading:boolean = false;
   errorMessage:string = 'We had a problem resetting your password. Please try again.';
 
@@ -49,7 +49,7 @@ export class ResetPasswordComponent {
       this.resetErrors();
       this.loading = false;
       if(error?.statusCode ) {
-        this.registerError = true;
+        this.resetError = true;
         this.errorMessage = error.message ?? 'We had a problem resetting your password. Please try again.';
       }
     });
@@ -83,7 +83,7 @@ export class ResetPasswordComponent {
     this.passwordErrorMessage = '';
     this.securityCodeHasErrors = false;
     this.securityCodeErrorMessage = '';
-    this.registerError = false;
+    this.resetError = false;
   }
 
   formIsInvalid(){
