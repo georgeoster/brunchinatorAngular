@@ -1,7 +1,9 @@
 .profile-picture {
   box-sizing: border-box;
-  margin-bottom: var(--medium);
   height: 15rem;
+  width: 20rem;
+  object-fit: cover;
+  margin: 0 auto var(--medium) auto;
 }
 
 .profile-picture > img {
@@ -18,4 +20,12 @@
   white-space: nowrap;
   margin: auto;
   box-sizing: border-box;
+}
+
+@media (width >= 600px) {
+  .profile-picture {
+    margin-top: var(--large);
+    height: 20rem;
+    width: 30rem;
+  }
 }
