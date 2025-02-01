@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { Place } from '../../../utils/types/all.types';
 import { getImageFromPlaceId } from '../../../utils/placeUtils';
 import { StarRatingComponent } from '../star-rating/star-rating.component';
@@ -11,19 +11,23 @@ import { StarRatingComponent } from '../star-rating/star-rating.component';
 })
 export class PlaceCardComponent {
   @Input() place!:Place;
+  @ViewChild('map', { static: false }) map!: ElementRef;
   starRating!:number;
   mainImageSrc:string = '';
   cardStyle: string = '';
 
   ngOnInit() {
-    this.populateMainImageSrc();
     const rating = this.place?.overallRating ?? 0;
     this.starRating = Math.round(rating) ?? 0;
   }
 
+  ngAfterViewInit() {
+    this.populateMainImageSrc();
+  }
+
   async populateMainImageSrc() {
     const placeId = this.place?.placeId ?? '1';
-    this.mainImageSrc = await getImageFromPlaceId(placeId);
+    this.mainImageSrc = await getImageFromPlaceId(placeId, this.map.nativeElement);
     this.cardStyle = `background-image: linear-gradient(to top, #465358, transparent  33%), url('${this.mainImageSrc}');`;
   }
 
