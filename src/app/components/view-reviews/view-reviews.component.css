@@ -5,3 +5,10 @@
 .placeCard {
   margin: var(--xlarge) var(--xlarge) 0 var(--xlarge);
 }
+
+@media (width >= 600px) {
+  .placeCard {
+    width: 30rem;
+    margin: var(--xlarge) auto 0 auto;
+  }
+}
