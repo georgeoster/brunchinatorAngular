@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Place } from '../../utils/types/all.types';
 import { getImageFromPlaceId } from '../../utils/placeUtils';
@@ -12,6 +12,7 @@ import { GetPlacesService } from '../../services/get-places.service';
   styleUrl: './place.component.css'
 })
 export class PlaceComponent {
+  @ViewChild('map', { static: false }) map!: ElementRef;
   place!: Place;
   placeId:string = '';
   mainImageSrc:string = '';
@@ -53,7 +54,11 @@ export class PlaceComponent {
     return this.place?.vicinity ?? '';
   }
 
+  ngAfterViewInit() {
+    this.populateMainImageSrc();
+  }
+
   async populateMainImageSrc() {
-    this.mainImageSrc =  await getImageFromPlaceId(this.placeIdToPass);
+    this.mainImageSrc =  await getImageFromPlaceId(this.placeIdToPass, this.map.nativeElement);
   }
 }

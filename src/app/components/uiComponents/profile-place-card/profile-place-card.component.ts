@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { getImageFromPlaceId } from '../../../utils/placeUtils';
 
 @Component({
@@ -9,14 +9,15 @@ import { getImageFromPlaceId } from '../../../utils/placeUtils';
 })
 export class ProfilePlaceCardComponent {
   @Input() placeName:string = 'Place';
+  @ViewChild('map', { static: false }) map!: ElementRef;
   @Input() placeId:string = '1';
   mainImageSrc:string = '';
 
-  ngOnInit() {
+  ngAfterViewInit() {
     this.populateMainImageSrc();
   }
 
   async populateMainImageSrc() {
-    this.mainImageSrc = await getImageFromPlaceId(this.placeId);
+    this.mainImageSrc = await getImageFromPlaceId(this.placeId, this.map.nativeElement);
   }
 }
