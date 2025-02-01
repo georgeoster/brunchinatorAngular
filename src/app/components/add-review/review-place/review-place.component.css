@@ -54,3 +54,21 @@ textarea {
 .error-outline {
   border: 1px solid red;
 }
+
+@media (width >= 600px) {
+  .mainImage {
+    min-width: 30rem;
+    max-width: 30rem;
+    min-height: 20rem;
+    max-height: 20rem;
+    object-fit: cover;
+    display: block;
+    margin: var(--large)  auto 0 auto;
+    border-radius: var(--border-radius);
+  }
+  .container {
+    width: 30rem;
+    margin: var(--xsmall) auto var(--xlarge) auto;
+  }
+
+}
