@@ -44,6 +44,7 @@ textarea {
   box-sizing: border-box;
   color: var(--font-color-action);
   padding: var(--small);
+  font-size: 16px;
 }
 
 .submit-button {
