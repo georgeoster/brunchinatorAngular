@@ -17,6 +17,7 @@ export class ProfilePictureComponent {
   imageToUpload!:File;
   @Input() profileIsSignedInUser:boolean = false;
   profilePicture!:String;
+  loading:boolean = false;
   uploadImageServiceSubscription:Subscription = new Subscription();
 
   constructor(private uploadImageService: UploadImageService, private changeDetectorRef: ChangeDetectorRef){
@@ -30,6 +31,7 @@ export class ProfilePictureComponent {
   subscribeToUploadImageService(){
     this.uploadImageServiceSubscription = this.uploadImageService.uploadImageResponse.subscribe((response) => {
       //TODO force re-getting of image
+      this.loading = false;
       this.profilePicture = '';
       this.changeDetectorRef.detectChanges();
       this.profilePicture = `${s3Host}/${this.userName}`;
@@ -52,6 +54,7 @@ export class ProfilePictureComponent {
     const toUpload = new FormData();
     toUpload.append('image', this.imageToUpload);
     toUpload.append('userName', this.userName);
+    this.loading = true;
     this.uploadImageService.uploadImage(toUpload);
   }
 
