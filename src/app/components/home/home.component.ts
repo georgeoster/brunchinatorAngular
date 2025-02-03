@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { CardComponent } from '../uiComponents/card/card.component';
 
 @Component({
   selector: 'brunch-home',
-  imports: [],
+  imports: [CardComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
