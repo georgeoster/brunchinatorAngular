@@ -7,8 +7,10 @@
 .title {
   font-size: var(--large);
   margin-right: var(--xsmall);
-  width: 4.5rem;
+  min-width: min-content;
+  padding-right: .25rem;
   color: var(--font-color-card);
+  box-sizing: border-box;
 }
 
 input {
@@ -16,8 +18,8 @@ input {
 }
 
 .star {
-  width: var(--large);
-  min-width: var(--large);
+  width: var(--xlarge);
+  min-width: var(--xlarge);
   aspect-ratio: 1;
   /* background: rgb(104, 103, 103); */
   background: var(--body-background-color);

@@ -28,7 +28,7 @@ export class PlaceCardComponent {
   async populateMainImageSrc() {
     const placeId = this.place?.placeId ?? '1';
     this.mainImageSrc = await getImageFromPlaceId(placeId, this.map.nativeElement);
-    this.cardStyle = `background-image: linear-gradient(to top, #465358, transparent  33%), url('${this.mainImageSrc}');`;
+    this.cardStyle = `background-image: linear-gradient(to top, #0f1a0f, transparent  33%), url('${this.mainImageSrc}');`;
   }
 
   placeName() {
