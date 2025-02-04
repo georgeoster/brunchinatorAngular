@@ -74,7 +74,7 @@
     margin: 0 auto;
   }
   .title {
-    margin: var(--small) auto;
+    margin: var(--xsmall) auto var(--medium) auto;
     width: 20rem;
     white-space: nowrap;
   }

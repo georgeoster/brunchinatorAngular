@@ -10,13 +10,12 @@
   justify-content: end;
   color: #cec9be;
   border-radius: var(--border-radius);
-  /* border: 1px solid gray; */
   box-shadow: rgba(0, 0, 0, 0.35) 0px .5rem 1rem;
-  /* box-shadow: rgba(67, 36, 159, 0.35) 0px 1rem 1rem; */
 }
 
 .name {
   margin-left: var(--small);
+  font-size: var(--large);
 }
 
 .stars {
@@ -29,7 +28,7 @@
 }
 
 .number-of-reviews {
-  margin-top: .35rem;
+  margin-top: .66rem;
   margin-left: var(--xsmall);
   font-size: var(--medium);
 }
