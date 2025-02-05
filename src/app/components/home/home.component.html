@@ -1,11 +1,28 @@
 
 <img class="top-image" src="/burger2.jpg"/>
-  <div class="title">Burgers and Bloodys</div>
-  <div class="instructions">What is brunchinator.com?</div>
+<div class="title">What is brunchinator.com?</div>
   <div class="card">
-    <brunch-card>
-      What could be better on a Saturday morning than a breakfast burger and a bloody mary?
-      But with so many brunch spots in Philly I started having trouble remembering where I liked or disliked the bloody mary. Then I had an idea: Make an app for that!
-    </brunch-card>
+  <brunch-card>
+    <p class="first-paragraph">
+      It started as a simple tool to help me remember where I liked the bloody mary.
+    </p>
+    <p>
+      Then I wanted to know what my friends thought too. 
+      So I added users.
+    </p>
+    <p>
+      Those friends wanted to rate burgers as well as bloodys. 
+      So I added burgers.
+    </p>
+    <p>
+      So now you can see what other people have to say, 
+      and if you want to leave some reviews yourself you can <span class="link" (click)="routeTo(ROUTE_NAMES.SIGN_UP)">create an account</span>  
+      and join in on the fun.
+    </p>
+    <p>
+      What's next? I have some ideas I'm working on, but it depends what the people want!
+      Got an idea for a feature? Send me an email at admin&#64;brunchinator.com and let's talk!
+    </p>
+  </brunch-card>
 </div>
 
