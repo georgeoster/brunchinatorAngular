@@ -7,22 +7,15 @@
 }
 
 .title {
-  margin: var(--small) 0 var(--medium) var(--xlarge);
+  margin: var(--xsmall) 0 var(--medium) var(--xlarge);
   font-size: var(--large);
   font-weight: 600;
   color: var(--font-color-action);
 }
 
-.instructions {
-  font-size: var(--medium);
-  margin: var(--xsmall) 0 var(--xsmall) var(--xlarge);
-  font-size: .75rem;
-  color: var(--font-color-helper);
-}
-
 .card {
   box-sizing: border-box;
-  margin: 0 var(--xlarge);
+  margin: 0 var(--xlarge) var(--large) var(--xlarge);
   color: var(--font-color);
 }
   
@@ -58,6 +51,15 @@
   cursor: pointer;
 }
 
+.first-paragraph {
+  margin-top: 0;
+}
+
+.link {
+  cursor: pointer;
+  color: var(--link-color);
+}
+
 @media (width >= 600px) {
   .top-image {
     min-width: 20rem;
@@ -71,16 +73,10 @@
   }
   .card {
     width: 20rem;
-    margin: 0 auto;
+    margin: 0 auto var(--large) auto; 
   }
   .title {
     margin: var(--xsmall) auto var(--medium) auto;
-    width: 20rem;
-    white-space: nowrap;
-  }
-  .instructions {
-    font-size: var(--medium);
-    margin: var(--xsmall) auto;
     width: 20rem;
     white-space: nowrap;
   }
