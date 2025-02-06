@@ -15,6 +15,7 @@ import { Router } from '@angular/router';
 })
 export class ViewReviewsComponent {
 
+  loading: boolean = true;
   places: Array<Place> = [];
   getPlacesSubscription:Subscription = new Subscription;
   getPlacesErrorSubscription: Subscription = new Subscription;
@@ -34,6 +35,9 @@ export class ViewReviewsComponent {
   subscribeToGetPlacesSubscription() {
     this.getPlacesSubscription = this.getPlacesService.places.subscribe((places:Array<Place>) => {
       this.places = places;
+      if(this.places?.length > 0) {
+        this.loading = false;
+      }
     });
     this.getPlacesService.getPlaces();
   }
@@ -43,6 +47,7 @@ export class ViewReviewsComponent {
       console.error(error);
       this.getPlacesError = true;
       this.changeDetectorRef.detectChanges();
+      this.loading = false;
     });
   }
 
