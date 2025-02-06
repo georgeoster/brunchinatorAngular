@@ -6,6 +6,27 @@
   margin: var(--xlarge) var(--xlarge) 0 var(--xlarge);
 }
 
+.loader {
+  width: 6rem;
+  height: 6rem;
+  border: .5rem solid var(--font-color-action);
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+  margin: 15rem auto;
+}
+
+  @keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  } 
+
 @media (width >= 600px) {
   .placeCard {
     width: 30rem;

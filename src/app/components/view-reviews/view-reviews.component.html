@@ -1,6 +1,7 @@
+<div *ngIf="loading" class="loader"></div>
 <div class="error-message">
   <app-error-message *ngIf="getPlacesError" [message]="errorMessage"/>
 </div>
 <div *ngFor="let place of places" class="placeCard">
-  <app-place-card [place]="place" (click)="navigateTo(place)"/>
+  <app-place-card *ngIf="!loading" [place]="place" (click)="navigateTo(place)"/>
 </div>
