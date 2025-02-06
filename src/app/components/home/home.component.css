@@ -60,6 +60,10 @@
   color: var(--link-color);
 }
 
+.email {
+  color: var(--font-color-action);
+}
+
 @media (width >= 600px) {
   .top-image {
     min-width: 20rem;
