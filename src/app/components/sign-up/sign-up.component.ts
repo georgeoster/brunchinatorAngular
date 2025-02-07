@@ -51,6 +51,10 @@ export class SignUpComponent {
       if(error?.statusCode === 401) {
         this.registerError = true;
       }
+      if(error?.statusCode === 409) {
+        this.errorMessage = error.message;
+        this.registerError = true;
+      }
     });
   }
 
