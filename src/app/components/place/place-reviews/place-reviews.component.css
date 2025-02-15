@@ -20,4 +20,5 @@
 .words {
   color: var(--font-color);
   margin-top: var(--medium);
+  white-space: pre-wrap;
 }
