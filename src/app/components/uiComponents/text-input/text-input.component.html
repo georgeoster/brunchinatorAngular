@@ -10,10 +10,16 @@
       [placeholder]="placeholder"  
       autocomplete="off"
     />
-    <img *ngIf="icon === 'password'" [src]="eyeBallIcon()" (click)="toggleShowPassword()"/>
+    @if (icon === 'password') {
+      <img [src]="eyeBallIcon()" (click)="toggleShowPassword()"/>
+    }
   </div>
-  <div *ngIf="hasError" class="error-message">{{errorMessage}}</div>
-  <div *ngIf="showForgotPassword" class="forgot-password" (click)="routeTo(ROUTE_NAMES.FORGOT_PASSWORD)">Forgot Password?</div>
+  @if (hasError) {
+    <div class="error-message">{{errorMessage}}</div>
+  }
+  @if (showForgotPassword) {
+    <div class="forgot-password" (click)="routeTo(ROUTE_NAMES.FORGOT_PASSWORD)">Forgot Password?</div>
+  }
 </div>
 
 

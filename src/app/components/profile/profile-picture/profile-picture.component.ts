@@ -3,11 +3,10 @@ import { UploadImageService } from '../../../services/upload-image.service';
 import { s3Host } from '../../../utils/http/consts';
 import { Subscription } from 'rxjs';
 import { ButtonComponent } from '../../uiComponents/button/button.component';
-import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'brunch-profile-picture',
-  imports: [ButtonComponent, NgIf],
+  imports: [ButtonComponent],
   templateUrl: './profile-picture.component.html',
   styleUrl: './profile-picture.component.css'
 })

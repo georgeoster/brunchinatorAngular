@@ -4,7 +4,9 @@
   <div class="instructions">Enter your information below</div>
   <div class="card">
     <brunch-card>
-      <app-error-message *ngIf="registerError" [message]="errorMessage"/>
+      @if (registerError) {
+        <app-error-message [message]="errorMessage"/>
+      }
       <brunch-text-input 
         field="Email"
         [(text)]="email"

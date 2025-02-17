@@ -6,12 +6,11 @@ import { Router } from '@angular/router';
 import { ROUTE_NAMES } from '../../utils/types/globalsConsts';
 import { UserService } from '../../services/user.service';
 import { Subscription } from 'rxjs';
-import { NgIf } from '@angular/common';
 import { ErrorMessageComponent } from '../uiComponents/error-message/error-message.component';
 
 @Component({
   selector: 'app-forgot-password',
-  imports: [CardComponent, TextInputComponent, ButtonComponent, NgIf, ErrorMessageComponent],
+  imports: [CardComponent, TextInputComponent, ButtonComponent, ErrorMessageComponent],
   templateUrl: './forgot-password.component.html',
   styleUrl: './forgot-password.component.css'
 })

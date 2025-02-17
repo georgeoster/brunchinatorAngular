@@ -1,2 +1,6 @@
-<app-find-place *ngIf="showFindPlace" (placeSelected)="handlePlaceSelected($event)"/>
-<app-review-place *ngIf="showReviewPlace" [place]="place"/>
+@if (showFindPlace) {
+  <app-find-place (placeSelected)="handlePlaceSelected($event)"/>
+}
+@if (showReviewPlace) {
+  <app-review-place [place]="place"/>
+}

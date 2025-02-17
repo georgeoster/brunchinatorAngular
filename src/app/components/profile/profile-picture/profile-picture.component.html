@@ -4,12 +4,13 @@
 </div>
 <label for="imageInput">
   <div class="label-button">
-    <brunch-button
-      *ngIf="profileIsSignedInUser"
-      title="Change Picture"
-      [callToAction]="true"
-      [showBorder]="false"
-      [loading]="loading"
-    />
+    @if (profileIsSignedInUser) {
+      <brunch-button
+        title="Change Picture"
+        [callToAction]="true"
+        [showBorder]="false"
+        [loading]="loading"
+      />
+    }
   </div>
 </label>

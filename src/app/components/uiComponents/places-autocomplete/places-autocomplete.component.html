@@ -10,5 +10,7 @@
       onfocus="this.placeholder=''"
     >
   </div>
-  <div *ngIf="hasError" class="error-message">{{errorMessage}}</div>
+  @if (hasError) {
+    <div class="error-message">{{errorMessage}}</div>
+  }
 </div>

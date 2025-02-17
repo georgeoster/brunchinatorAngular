@@ -1,20 +1,26 @@
-<div class="flex-row container" *ngFor="let review of reviews">
-  <brunch-place-user-card [userName]="review.userName" (click)="navigateToProfileFor(review)"/>
-  <div class="flex-column body">
-    <brunch-star-rating
-      *ngIf="review.burger"
-      title="Burger"
-      [small]="true"
-      [selectedOption]="review.burger"
-    />
-    <brunch-star-rating
-      *ngIf="review.bloody"
-      title="Bloody"
-      [small]="true"
-      [selectedOption]="review.bloody"
-    />
-    <div class="date">{{formatDate(review.reviewDate)}}</div>
-    <div class="words">{{review.words}}</div>
-    
+@for (review of reviews; track $index) {
+  <div class="flex-row container">
+    <brunch-place-user-card [userName]="review.userName" (click)="navigateToProfileFor(review)"/>
+    <div class="flex-column body">
+      @if (review.burger) {
+        <brunch-star-rating
+          title="Burger"
+          [small]="true"
+          [selectedOption]="review.burger"
+        />
+      }
+      @if (review.bloody) {
+        <brunch-star-rating
+          title="Bloody"
+          [small]="true"
+          [selectedOption]="review.bloody"
+        />
+      }
+      
+      <div class="date">{{formatDate(review.reviewDate)}}</div>
+      <div class="words">{{review.words}}</div>
+      
+    </div>
   </div>
-</div>
+}
+

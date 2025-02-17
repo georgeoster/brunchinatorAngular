@@ -1,16 +1,14 @@
 import { Component, Input } from '@angular/core';
-import { NgFor, NgIf } from '@angular/common';
 import { Subscription } from 'rxjs';
 import { Review, User } from '../../../utils/types/all.types';
 import { GetReviewsService } from '../../../services/get-reviews.service';
 import { ProfilePlaceCardComponent } from "../../uiComponents/profile-place-card/profile-place-card.component";
 import { StarRatingComponent } from '../../uiComponents/star-rating/star-rating.component';
-import { ActivatedRoute, Router } from '@angular/router';
-import { UserService } from '../../../services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'brunch-profile-reviews',
-  imports: [ProfilePlaceCardComponent, NgFor, NgIf, StarRatingComponent],
+  imports: [ProfilePlaceCardComponent, StarRatingComponent],
   templateUrl: './profile-reviews.component.html',
   styleUrl: './profile-reviews.component.css'
 })

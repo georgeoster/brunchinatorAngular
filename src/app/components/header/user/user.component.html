@@ -1,5 +1,10 @@
-<div *ngIf="isLoggedIn" (click)="navigateToProfile(ROUTE_NAMES.PROFILE)" class="userName"> {{user.userName}}</div>
-<div *ngIf="!isLoggedIn" class="flex-row">
+@if (isLoggedIn) {
+  <div (click)="navigateToProfile(ROUTE_NAMES.PROFILE)" class="userName"> {{user.userName}}</div>
+}
+@if (!isLoggedIn) {
+  <div class="flex-row">
   <brunch-button title="Sign In" [showBorder]="false" (buttonClick)="routeTo(ROUTE_NAMES.SIGN_IN)"/>
   <brunch-button class="register-button" title="Register" (buttonClick)="routeTo(ROUTE_NAMES.SIGN_UP)"/>
 </div>
+}
+

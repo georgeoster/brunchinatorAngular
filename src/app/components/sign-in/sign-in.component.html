@@ -4,7 +4,9 @@
   <div class="instructions">Enter your credentials below</div>
   <div class="card">
     <brunch-card>
-      <app-error-message *ngIf="signInError" [message]="errorMessage"/>
+      @if (signInError) {
+        <app-error-message [message]="errorMessage"/>
+      }
       <brunch-text-input 
         field="UserName"
         [(text)]="userName"
