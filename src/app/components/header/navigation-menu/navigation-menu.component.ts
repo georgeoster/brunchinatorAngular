@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NgClass, NgFor } from '@angular/common';
+import { NgClass } from '@angular/common';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { MenuService } from '../../../services/menu.service';
@@ -9,7 +9,7 @@ import { UserService } from '../../../services/user.service';
 
 @Component({
   selector: 'brunch-navigation-menu',
-  imports: [NgClass, NgFor],
+  imports: [NgClass],
   templateUrl: './navigation-menu.component.html',
   styleUrl: './navigation-menu.component.css'
 })

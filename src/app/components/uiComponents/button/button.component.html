@@ -7,6 +7,10 @@
     }"
   (click)="clickHandler()"
 >
-  <span *ngIf="!loading">{{title}}</span>
-  <img *ngIf="loading" src="/loading.png" class="rotating">
+@if (!loading) {
+  <span>{{title}}</span>
+}
+@if (loading) {
+  <img src="/loading.png" class="rotating">
+}
 </button>

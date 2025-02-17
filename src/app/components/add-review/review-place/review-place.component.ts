@@ -7,14 +7,13 @@ import { UserService } from '../../../services/user.service';
 import { Subscription } from 'rxjs';
 import { FormsModule } from '@angular/forms';
 import { AddReviewService } from '../../../services/add-review.service';
-import { NgFor, NgIf } from '@angular/common';
 import { Router } from '@angular/router';
 import { ErrorMessageComponent } from '../../uiComponents/error-message/error-message.component';
 import { getImageForPlace } from '../../../utils/placeUtils';
 
 @Component({
   selector: 'app-review-place',
-  imports: [CardComponent, StarRatingComponent, ButtonComponent, ErrorMessageComponent, FormsModule, NgFor, NgIf],
+  imports: [CardComponent, StarRatingComponent, ButtonComponent, ErrorMessageComponent, FormsModule],
   templateUrl: './review-place.component.html',
   styleUrl: './review-place.component.css'
 })

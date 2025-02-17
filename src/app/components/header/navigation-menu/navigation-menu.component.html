@@ -1,8 +1,10 @@
 <nav class="menu" [ngClass]="{menuVisible: showMenu}">
   <ul>
-    <li *ngFor="let item of menuItems" (click)="routerHandler(item.route)">
-      <img [src]="iconFor(item)"/>
-      <div>{{item.label}}</div> 
-    </li>
+    @for (item of menuItems; track $index) {
+      <li (click)="routerHandler(item.route)">
+        <img [src]="iconFor(item)"/>
+        <div>{{item.label}}</div> 
+      </li>
+    }
   </ul>
 </nav>

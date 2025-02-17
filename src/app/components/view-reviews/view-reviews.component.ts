@@ -3,13 +3,12 @@ import { PlaceCardComponent } from '../uiComponents/place-card/place-card.compon
 import { Place, serviceError } from '../../utils/types/all.types';
 import { GetPlacesService } from '../../services/get-places.service';
 import { Subscription } from 'rxjs';
-import { NgFor, NgIf } from '@angular/common';
 import { ErrorMessageComponent } from '../uiComponents/error-message/error-message.component';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'brunch-view-reviews',
-  imports: [PlaceCardComponent, ErrorMessageComponent, NgFor, NgIf],
+  imports: [PlaceCardComponent, ErrorMessageComponent],
   templateUrl: './view-reviews.component.html',
   styleUrl: './view-reviews.component.css'
 })

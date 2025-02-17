@@ -1,10 +1,10 @@
 import { ChangeDetectorRef, Component, EventEmitter, Input, Output, } from '@angular/core';
-import { NgClass, NgFor, NgIf } from '@angular/common';
+import { NgClass } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'brunch-star-rating',
-  imports: [NgClass, NgFor, FormsModule, NgIf],
+  imports: [NgClass, FormsModule],
   templateUrl: './star-rating.component.html',
   styleUrl: './star-rating.component.css'
 })

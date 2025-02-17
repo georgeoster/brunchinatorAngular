@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { NgIf } from '@angular/common';
 import { ButtonComponent } from "../../uiComponents/button/button.component";
 import { UserService } from '../../../services/user.service';
 import { Subscription } from 'rxjs';
@@ -10,7 +9,7 @@ import { MenuService } from '../../../services/menu.service';
 
 @Component({
   selector: 'brunch-user',
-  imports: [NgIf, ButtonComponent],
+  imports: [ButtonComponent],
   templateUrl: './user.component.html',
   styleUrl: './user.component.css'
 })

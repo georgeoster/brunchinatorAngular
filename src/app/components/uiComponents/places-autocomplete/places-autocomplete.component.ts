@@ -1,13 +1,13 @@
 import { Component, ViewChild, EventEmitter, Output, OnInit, AfterViewInit, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { NgIf, NgClass } from '@angular/common';
+import { NgClass } from '@angular/common';
 import { autoCompletePlace } from '../../../utils/types/all.types';
 
 declare const google: any;
 
 @Component({
   selector: 'app-places-autocomplete',
-  imports: [FormsModule, NgIf, NgClass],
+  imports: [FormsModule, NgClass],
   templateUrl: './places-autocomplete.component.html',
   styleUrl: './places-autocomplete.component.css'
 })

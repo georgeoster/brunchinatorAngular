@@ -1,7 +1,15 @@
-<div *ngIf="loading" class="loader"></div>
+@if (loading) {
+  <div class="loader"></div>
+}
 <div class="error-message">
-  <app-error-message *ngIf="getPlacesError" [message]="errorMessage"/>
+  @if (getPlacesError) {
+    <app-error-message [message]="errorMessage"/>
+  }
 </div>
-<div *ngFor="let place of places" class="placeCard">
-  <app-place-card *ngIf="!loading" [place]="place" (click)="navigateTo(place)"/>
-</div>
+@for (place of places; track $index) {
+  <div class="placeCard">
+    @if (!loading) {
+      <app-place-card [place]="place" (click)="navigateTo(place)"/>
+    }
+  </div>
+}
