@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { ButtonComponent } from "../../uiComponents/button/button.component";
 import { UserService } from '../../../services/user.service';
 import { Subscription } from 'rxjs';
-import { User } from '../../../utils/types/all.types';
+import { User } from '../../../models/User';
 import { Router } from '@angular/router';
-import { ROUTE_NAMES } from '../../../utils/types/globalsConsts';
+import { ROUTE_NAMES } from '../../../models/RouteNames';
 import { MenuService } from '../../../services/menu.service';
 
 @Component({

@@ -1,4 +1,4 @@
-import { autoCompletePlace } from "./types/all.types";
+import { autoCompletePlace } from "../models/AutoCompletePlace";
 declare const google: any;
 
 export const getImageForPlace = (place:autoCompletePlace) => {

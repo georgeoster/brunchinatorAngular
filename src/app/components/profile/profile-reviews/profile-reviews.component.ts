@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { Review, User } from '../../../utils/types/all.types';
+import { Review } from '../../../models/Review';
+import { User } from '../../../models/User';
 import { GetReviewsService } from '../../../services/get-reviews.service';
 import { ProfilePlaceCardComponent } from "../../uiComponents/profile-place-card/profile-place-card.component";
 import { StarRatingComponent } from '../../uiComponents/star-rating/star-rating.component';

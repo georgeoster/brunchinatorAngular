@@ -1,6 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Place } from '../../utils/types/all.types';
+import { Place } from '../../models/Place';
 import { getImageFromPlaceId } from '../../utils/placeUtils';
 import { PlaceReviewsComponent } from './place-reviews/place-reviews.component';
 import { GetPlacesService } from '../../services/get-places.service';

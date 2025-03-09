@@ -4,7 +4,7 @@ import { ProfilePictureComponent } from '../profile-picture/profile-picture.comp
 import { ProfileReviewsComponent } from "../profile-reviews/profile-reviews.component";
 import { UserService } from '../../../services/user.service';
 import { Subscription } from 'rxjs';
-import { User } from '../../../utils/types/all.types';
+import { User } from '../../../models/User';
 
 
 

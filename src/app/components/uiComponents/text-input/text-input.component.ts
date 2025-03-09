@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NgClass } from '@angular/common';
 import { Router } from '@angular/router';
-import { ROUTE_NAMES } from '../../../utils/types/globalsConsts';
+import { ROUTE_NAMES } from '../../../models/RouteNames';
 
 @Component({
   selector: 'brunch-text-input',

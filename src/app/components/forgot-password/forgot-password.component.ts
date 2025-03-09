@@ -3,7 +3,7 @@ import { CardComponent } from '../uiComponents/card/card.component';
 import { TextInputComponent } from '../uiComponents/text-input/text-input.component';
 import { ButtonComponent } from '../uiComponents/button/button.component';
 import { Router } from '@angular/router';
-import { ROUTE_NAMES } from '../../utils/types/globalsConsts';
+import { ROUTE_NAMES } from '../../models/RouteNames';
 import { UserService } from '../../services/user.service';
 import { Subscription } from 'rxjs';
 import { ErrorMessageComponent } from '../uiComponents/error-message/error-message.component';

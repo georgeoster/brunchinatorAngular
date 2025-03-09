@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, catchError, Subject, throwError } from 'rxjs';
-import { serviceError, User, userResponse, sendResetPasswordEmailResponse } from '../utils/types/all.types';
+import { serviceError } from '../models/ServiceError';
+import { sendResetPasswordEmailResponse } from '../models/SendResetPasswordEmailResponse';
+import { userResponse } from '../models/UserResponse';
+import { User } from '../models/User';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { host } from '../utils/http/consts';
 

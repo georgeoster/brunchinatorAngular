@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, catchError, Subject, throwError } from 'rxjs';
-import { getPlacesResponse, getPlaceByPlaceIdResponse, Place, serviceError } from '../utils/types/all.types';
+import { serviceError } from '../models/ServiceError';
+import { getPlaceByPlaceIdResponse } from '../models/GetPlaceByPlaceIdResponse';
+import { Place } from '../models/Place';
+import { getPlacesResponse } from '../models/GetPlacesResponse';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { host } from '../utils/http/consts';
 
