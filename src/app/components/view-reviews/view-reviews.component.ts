@@ -1,6 +1,7 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { PlaceCardComponent } from '../uiComponents/place-card/place-card.component';
-import { Place, serviceError } from '../../utils/types/all.types';
+import { serviceError } from '../../models/ServiceError';
+import { Place } from '../../models/Place';
 import { GetPlacesService } from '../../services/get-places.service';
 import { Subscription } from 'rxjs';
 import { ErrorMessageComponent } from '../uiComponents/error-message/error-message.component';

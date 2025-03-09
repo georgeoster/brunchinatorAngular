@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CardComponent } from '../uiComponents/card/card.component';
 import { Router } from '@angular/router';
-import { ROUTE_NAMES } from '../../utils/types/globalsConsts';
+import { ROUTE_NAMES } from '../../models/RouteNames';
 
 @Component({
   selector: 'brunch-home',

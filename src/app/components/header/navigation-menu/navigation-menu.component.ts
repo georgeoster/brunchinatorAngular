@@ -3,8 +3,9 @@ import { NgClass } from '@angular/common';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { MenuService } from '../../../services/menu.service';
-import { NavigationMenuItem, User } from '../../../utils/types/all.types';
-import { ROUTE_NAMES } from '../../../utils/types/globalsConsts';
+import { NavigationMenuItem } from '../../../models/NavigationMenuItem';
+import { User } from '../../../models/User';
+import { ROUTE_NAMES } from '../../../models/RouteNames';
 import { UserService } from '../../../services/user.service';
 
 @Component({

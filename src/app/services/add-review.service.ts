@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, catchError, Subject, throwError } from 'rxjs';
-import { addReviewResponse, CreateReview, serviceError } from '../utils/types/all.types';
+import { CreateReview } from '../models/CreateReview';
+import { serviceError } from '../models/ServiceError';
+import { addReviewResponse } from '../models/AddReviewResponse';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { host } from '../utils/http/consts';
 

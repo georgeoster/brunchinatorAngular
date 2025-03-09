@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { FindPlaceComponent } from "./find-place/find-place.component";
 import { ReviewPlaceComponent } from "./review-place/review-place.component";
-import { autoCompletePlace } from '../../utils/types/all.types';
+import { autoCompletePlace } from '../../models/AutoCompletePlace';
 
 @Component({
   selector: 'brunch-add-review',

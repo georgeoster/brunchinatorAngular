@@ -1,5 +1,5 @@
 import { Component, ElementRef, Input, ViewChild } from '@angular/core';
-import { Place } from '../../../utils/types/all.types';
+import { Place } from '../../../models/Place';
 import { getImageFromPlaceId } from '../../../utils/placeUtils';
 import { StarRatingComponent } from '../star-rating/star-rating.component';
 

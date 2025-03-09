@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Review } from '../../../utils/types/all.types';
+import { Review } from '../../../models/Review';
 import { GetReviewsService } from '../../../services/get-reviews.service';
 import { StarRatingComponent } from '../../uiComponents/star-rating/star-rating.component';
 import { PlaceUserCardComponent } from '../../uiComponents/place-user-card/place-user-card.component';
