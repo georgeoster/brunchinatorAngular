@@ -1,59 +1,81 @@
-# BrunchinatorAngular
+# Brunchinator Angular
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.2.
+Brunchinator Angular is the frontend component of the Brunchinator web application. Built with Angular, it delivers a modern, responsive, and interactive user experience, seamlessly integrating with the [Brunchinator BackEnd](https://github.com/brunchinatorMaster/brunchinatorBackEnd)
 
-## Development server
+## Table of Contents
 
-To start a local development server, run:
+- [Overview](#overview)
+- [Features](#features)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Development](#development)
+- [Building for Production](#building-for-production)
+- [Contact](#contact)
 
+## Overview
+
+Brunchinator Angular serves as the client-side of the Brunchinator project, offering an intuitive interface and robust functionality using the latest Angular features. It is designed to work in tandem with the Brunchinator backend to deliver a seamless user experience.
+
+## Features
+
+- **Responsive UI:** Designed to work on all devices.
+- **Modular Architecture:** Easy-to-maintain codebase with reusable components.
+- **API Integration:** Connects with the Brunchinator backend for dynamic data.
+- **Modern Tooling:** Leveraging Angular CLI for development and deployment.
+- **Testing:** Comprehensive unit tests using Jasmine and Karma.
+
+## Project Structure
 ```bash
-ng serve
+brunchinatorAngular/
+├── node_modules/ # Installed dependencies
+├── src/
+│ ├── app/ # Main Angular application code
+│ │ ├── components/ # Reusable UI components
+│ │ ├── models/ # TypeScript interfaces & models
+│ │ ├── services/ # API integration & business logic
+│ │ ├── utils/ # Global Consts and helper functions
+│ └── index.html # Application entry point
+├── angular.json # Angular CLI configuration
+├── package.json # NPM package configuration and scripts
+└── tsconfig.json # TypeScript compiler configuration
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Getting Started
 
-## Code scaffolding
+### Prerequisites
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- [Node.js](https://nodejs.org/) (v14 or later)
+- [npm](https://www.npmjs.com/) (v6 or later)
+- [Angular CLI](https://cli.angular.io/) (v12 or later)
 
-```bash
-ng generate component component-name
-```
+### Installation
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/brunchinatorMaster/brunchinatorAngular.git
 
-```bash
-ng generate --help
-```
+2. **Navigate to the project directory:**
+    ```bash
+    cd brunchinatorAngular
+    ```
+3. **Install the dependencies:**
+    ```bash
+    npm install
+    ```
+### Development
+To run the application in development mode with live reloading, execute:
+  ```bash
+  ng serve
+  ```
+Open your browser and navigate to http://localhost:4200/ to view the app.
 
-## Building
+### Building for Production
+To build the project for production, run:
+  ```bash
+  ng build --prod
+  ```
+The compiled output will be located in the dist/ directory.
 
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+### Contact
+For more information, please visit the [Brunchinator website](https://www.brunchinator.com) or contact the maintainer at georgeostercodes@gmail.com.
