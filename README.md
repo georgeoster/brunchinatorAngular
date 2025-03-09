@@ -6,6 +6,7 @@ Brunchinator Angular is the frontend component of the Brunchinator web applicati
 
 - [Overview](#overview)
 - [Features](#features)
+- [Project Structure](#project-structure)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
