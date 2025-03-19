@@ -34,6 +34,7 @@ export class ProfileReviewsComponent {
 
   formatDate(s:string) {
     const d = new Date(s); 
+    if(d.toString() == 'Invalid Date') return '';
     return `${this.months[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`;
   }
 

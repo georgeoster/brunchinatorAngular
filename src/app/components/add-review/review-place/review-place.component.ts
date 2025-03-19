@@ -2,7 +2,6 @@ import { ChangeDetectorRef, Component, Input } from '@angular/core';
 import { CreateReview } from '../../../models/CreateReview';
 import { autoCompletePlace } from '../../../models/AutoCompletePlace';
 import { serviceError } from '../../../models/ServiceError';
-import { Review } from '../../../models/Review';
 import { User } from '../../../models/User';
 import { StarRatingComponent } from '../../uiComponents/star-rating/star-rating.component';
 import { CardComponent } from '../../uiComponents/card/card.component';

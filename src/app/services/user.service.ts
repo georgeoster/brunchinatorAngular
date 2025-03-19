@@ -95,8 +95,7 @@ export class UserService {
     ))
     .subscribe((response:sendResetPasswordEmailResponse) => {
       this.resetPasswordEmailSentSubject.next(response.success);
-    }
-  );
+    });
   }
 
   resetPassword(userName:string, password:string, resetCode:number) {

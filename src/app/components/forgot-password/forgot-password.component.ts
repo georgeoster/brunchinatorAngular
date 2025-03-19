@@ -33,6 +33,7 @@ export class ForgotPasswordComponent {
 
   ngOnDestroy() {
     this.userServiceErrorSubscription.unsubscribe();
+    this.userServiceSubscription.unsubscribe();
   }
 
   subscribeToUserServiceErrorSubscription(){
