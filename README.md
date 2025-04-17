@@ -1,6 +1,6 @@
 # Brunchinator Angular
 
-Brunchinator Angular is the frontend component of the Brunchinator web application. Built with Angular, it delivers a modern, responsive, and interactive user experience, seamlessly integrating with the [Brunchinator BackEnd](https://github.com/brunchinatorMaster/brunchinatorBackEnd)
+Brunchinator Angular is the frontend component of the Brunchinator web application. Built with Angular, it delivers a modern, responsive, and interactive user experience, seamlessly integrating with the [Brunchinator BackEnd](https://github.com/georgeoster/brunchinatorBackEnd)
 
 ## Table of Contents
 
