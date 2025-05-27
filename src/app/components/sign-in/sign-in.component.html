@@ -1,39 +1,58 @@
+<img 
+  src="/burger2.jpg" 
+  alt="Burger" 
+  class="w-full h-60 object-cover sm:w-80 sm:h-60 sm:rounded-xl sm:mx-auto mt-6"
+/>
 
-<img class="top-image" src="/burger2.jpg"/>
-  <div class="title">Sign In To Your Account</div>
-  <div class="instructions">Enter your credentials below</div>
-  <div class="card">
-    <brunch-card>
-      @if (signInError) {
-        <app-error-message [message]="errorMessage"/>
-      }
-      <brunch-text-input 
-        field="UserName"
-        [(text)]="userName"
-        [hasError]="userNameHasErrors"
-        [errorMessage]="userNameErrorMessage" 
-      />
-      <brunch-text-input 
-        field="Password"
-        type="password"
-        icon="password"
-        [(text)]="password"
-        [hasError]="passwordHasErrors"
-        [errorMessage]="passwordErrorMessage" 
-        [showForgotPassword]="true"
-      />
-      <div class="sign-in-button-wrapper">
-        <brunch-button
-          title="Sign In"
-          (buttonClick)="handleSignIn()"
-          [loading]="loading"
-          [callToAction]="true"
-          [showBorder]="false"
-        />
-      </div>
-    </brunch-card>
-</div>
-<div class="sign-up-message">
-Don't have an account? <span class="sign-up-link" (click)="routeTo(ROUTE_NAMES.SIGN_UP)">Sign Up Now!</span>
-</div>
+<h1 class="text-2xl sm:text-3xl font-bold text-indigo-600 text-center mt-6 mb-2">
+  Sign In To Your Account
+</h1>
 
+<p class="text-sm text-gray-500 text-center mb-6">
+  Enter your credentials below
+</p>
+
+<div class="px-4 sm:px-0 max-w-md mx-auto">
+  <brunch-card>
+    @if (signInError) {
+      <app-error-message [message]="errorMessage" />
+    }
+
+    <brunch-text-input 
+      field="UserName"
+      [(text)]="userName"
+      [hasError]="userNameHasErrors"
+      [errorMessage]="userNameErrorMessage" 
+    />
+
+    <brunch-text-input 
+      field="Password"
+      type="password"
+      icon="password"
+      [(text)]="password"
+      [hasError]="passwordHasErrors"
+      [errorMessage]="passwordErrorMessage" 
+      [showForgotPassword]="true"
+    />
+
+    <div class="mt-4">
+      <brunch-button
+        title="Sign In"
+        (buttonClick)="handleSignIn()"
+        [loading]="loading"
+        [callToAction]="true"
+        [showBorder]="false"
+      />
+    </div>
+  </brunch-card>
+
+  <p class="text-sm text-center mt-6 text-gray-700">
+    Don't have an account? 
+    <span 
+      class="text-indigo-600 font-semibold cursor-pointer"
+      (click)="routeTo(ROUTE_NAMES.SIGN_UP)"
+    >
+      Sign Up Now!
+    </span>
+  </p>
+</div>
