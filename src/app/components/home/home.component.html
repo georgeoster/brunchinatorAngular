@@ -1,28 +1,39 @@
+<img 
+  src="/burger2.jpg" 
+  alt="Burger" 
+  class="w-full h-60 object-cover sm:w-80 sm:h-60 sm:rounded-xl sm:mx-auto mt-6"
+/>
 
-<img class="top-image" src="/burger2.jpg"/>
-<div class="title">What is brunchinator.com?</div>
-  <div class="card">
+<h1 class="text-2xl sm:text-3xl font-bold text-indigo-600 text-center mt-6 mb-6">
+  What is brunchinator.com?
+</h1>
+
+<div class="px-4 sm:px-0 max-w-2xl mx-auto">
   <brunch-card>
-    <p class="first-paragraph">
+    <p class="mt-0">
       It started as a simple tool to help me remember where I liked the bloody mary.
     </p>
-    <p>
+    <p class="mt-4">
       Then I wanted to know what my friends thought too. 
       So I added users.
     </p>
-    <p>
+    <p class="mt-4">
       Those friends wanted to rate burgers as well as bloodys. 
       So I added burgers.
     </p>
-    <p>
+    <p class="mt-4">
       So now you can see what other people have to say, 
-      and if you want to leave some reviews yourself you can <span class="link" (click)="routeTo(ROUTE_NAMES.SIGN_UP)">create an account</span>  
+      and if you want to leave some reviews yourself you can 
+      <span class="text-indigo-600 font-semibold cursor-pointer" (click)="routeTo(ROUTE_NAMES.SIGN_UP)">
+        create an account
+      </span>  
       and join in on the fun.
     </p>
-    <p>
+    <p class="mt-4">
       What's next? I have some ideas I'm working on, but it depends what the people want!
-      Got an idea for a feature? Send me an email at <span class="email">admin&#64;brunchinator.com</span>  and let's talk!
+      Got an idea for a feature? Send me an email at 
+      <span class="text-indigo-700 font-semibold">admin&#64;brunchinator.com</span> 
+      and let's talk!
     </p>
   </brunch-card>
 </div>
-
