@@ -1,44 +1,55 @@
+<img 
+  src="/burger2.jpg" 
+  alt="Burger" 
+  class="w-full h-60 object-cover sm:w-80 sm:h-60 sm:rounded-xl sm:mx-auto mt-6"
+/>
 
-<img class="top-image" src="/burger2.jpg"/>
-  <div class="title">Create Your Account</div>
-  <div class="instructions">Enter your information below</div>
-  <div class="card">
-    <brunch-card>
-      @if (registerError) {
-        <app-error-message [message]="errorMessage"/>
-      }
-      <brunch-text-input 
-        field="Email"
-        [(text)]="email"
-        icon="email"
-        [hasError]="emailHasErrors"
-        [errorMessage]="emailErrorMessage" 
+<h1 class="text-2xl sm:text-3xl font-bold text-indigo-600 text-center mt-6 mb-2">
+  Create Your Account
+</h1>
+
+<p class="text-sm text-gray-500 text-center mb-6">
+  Enter your information below
+</p>
+
+<div class="px-4 sm:px-0 max-w-md mx-auto">
+  <brunch-card>
+    @if (registerError) {
+      <app-error-message [message]="errorMessage" />
+    }
+
+    <brunch-text-input 
+      field="Email"
+      [(text)]="email"
+      icon="email"
+      [hasError]="emailHasErrors"
+      [errorMessage]="emailErrorMessage" 
+    />
+
+    <brunch-text-input 
+      field="UserName"
+      [(text)]="userName"
+      [hasError]="userNameHasErrors"
+      [errorMessage]="userNameErrorMessage" 
+    />
+
+    <brunch-text-input 
+      field="Password"
+      type="password"
+      icon="password"
+      [(text)]="password"
+      [hasError]="passwordHasErrors"
+      [errorMessage]="passwordErrorMessage" 
+    />
+
+    <div class="mt-4">
+      <brunch-button
+        title="Create Account"
+        (buttonClick)="handleSignIn()"
+        [loading]="loading"
+        [callToAction]="true"
+        [showBorder]="false"
       />
-      <brunch-text-input 
-        field="UserName"
-        [(text)]="userName"
-        [hasError]="userNameHasErrors"
-        [errorMessage]="userNameErrorMessage" 
-      />
-      <brunch-text-input 
-        field="Password"
-        type="password"
-        icon="password"
-        [(text)]="password"
-        [hasError]="passwordHasErrors"
-        [errorMessage]="passwordErrorMessage" 
-        [showForgotPassword]="false"
-      />
-      <div class="sign-in-button-wrapper">
-        <brunch-button
-          title="Create Account"
-          (buttonClick)="handleSignIn()"
-          [loading]="loading"
-          [callToAction]="true"
-          [showBorder]="false"
-        />
-      </div>
-    </brunch-card>
+    </div>
+  </brunch-card>
 </div>
-
-
