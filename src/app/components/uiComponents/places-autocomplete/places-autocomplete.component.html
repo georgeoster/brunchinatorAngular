@@ -1,16 +1,24 @@
-<div [ngClass]="{'container': !hasError, 'container-error': hasError }">
-  <div class="flex-row input-wrapper" [ngClass]="{'input-wrapper-error': hasError }">
-    <img src="/place.png"/>
+<div class="mb-6">
+  <div 
+    class="flex items-center border rounded-lg px-3 py-2 
+           focus-within:ring-2 focus-within:ring-indigo-500 
+           transition text-gray-900 bg-white"
+    [ngClass]="{
+      'border-gray-300': !hasError,
+      'border-red-500': hasError
+    }"
+  >
+    <img src="/place.png" class="w-5 h-5 opacity-60" />
     <input 
       type="text"
       [(ngModel)]="placeName"
-      #placeInput 
-      class="input"
-      placeholder = "the name of the place?"
-      onfocus="this.placeholder=''"
-    >
+      #placeInput
+      placeholder="the name of the place?"
+      class="flex-1 bg-transparent border-none outline-none pl-3 text-sm"
+    />
   </div>
+
   @if (hasError) {
-    <div class="error-message">{{errorMessage}}</div>
+    <p class="text-xs text-red-500 mt-1">{{ errorMessage }}</p>
   }
 </div>
