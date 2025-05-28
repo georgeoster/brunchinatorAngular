@@ -2,10 +2,11 @@ import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { Place } from '../../../models/Place';
 import { getImageFromPlaceId } from '../../../utils/placeUtils';
 import { StarRatingComponent } from '../star-rating/star-rating.component';
+import { NgStyle } from '@angular/common';
 
 @Component({
   selector: 'app-place-card',
-  imports: [StarRatingComponent],
+  imports: [StarRatingComponent, NgStyle],
   templateUrl: './place-card.component.html',
   styleUrl: './place-card.component.css'
 })
@@ -19,6 +20,7 @@ export class PlaceCardComponent {
   ngOnInit() {
     const rating = this.place?.overallRating ?? 0;
     this.starRating = Math.round(rating) ?? 0;
+    console.log('we end up with: ' + this.starRating);
   }
 
   ngAfterViewInit() {
@@ -28,7 +30,8 @@ export class PlaceCardComponent {
   async populateMainImageSrc() {
     const placeId = this.place?.placeId ?? '1';
     this.mainImageSrc = await getImageFromPlaceId(placeId, this.map.nativeElement);
-    this.cardStyle = `background-image: linear-gradient(to top, #0f1a0f, transparent  33%), url('${this.mainImageSrc}');`;
+    this.cardStyle = `url('${this.mainImageSrc}')`;
+
   }
 
   placeName() {

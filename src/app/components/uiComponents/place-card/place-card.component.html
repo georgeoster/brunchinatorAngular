@@ -1,11 +1,18 @@
-<div [style]="cardStyle" class="place-card">
-  <div class="name">{{placeName()}}</div>
-  <div class="stars flex-row">
-    <brunch-star-rating 
-      [selectedOption]="starRating"
-      [showTitle]="false"
-    />
-    <div class="number-of-reviews">{{numberOfReviews()}} reviews</div>
+<div class="bg-white rounded-xl overflow-hidden shadow-md w-full transition hover:shadow-lg cursor-pointer">
+  <div class="h-48 w-full bg-gray-200 bg-cover bg-center" [ngStyle]="{ 'background-image': cardStyle }"></div>
+
+  <div class="p-4">
+    <h2 class="text-lg font-semibold text-gray-900 truncate">{{ placeName() }}</h2>
+
+    <div class="flex items-center mt-2">
+      <brunch-star-rating 
+        [selectedOption]="starRating"
+        [showTitle]="false"
+        [small]="true"
+      />
+      <span class="ml-2 text-sm text-gray-600">{{ numberOfReviews() }} reviews</span>
+    </div>
   </div>
-  <div #map id="map"></div>
 </div>
+
+<div #map id="map"></div>

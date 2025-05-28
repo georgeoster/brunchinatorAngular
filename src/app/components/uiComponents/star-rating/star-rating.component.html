@@ -1,15 +1,27 @@
-<div [ngClass]="{container: !small, containerSmall: small}">
-  <div class="flex-row">
-    @if (showTitle) {
-      <div [ngClass]="{title: !small, titleSmall: small}">{{title}}</div>
-    }
-    @for (option of options; track $index) {
-      <label [ngClass]="{selected: selectedOption && selectedOption >= option, star: !small, starSmall: small}" >
-        <input type="radio" [(ngModel)]="selectedOption" [value]="option" (change)="onOptionChange()"> 
-      </label>
-    }
-  </div>
-  @if (hasError) {
-    <div class="error-message">{{errorMessage}}</div>
+<div [ngClass]="small ? 'flex items-center gap-1' : 'flex items-center gap-2'">
+  @if (showTitle) {
+    <span [ngClass]="small ? 'text-sm' : 'text-base font-medium'">{{ title }}</span>
+  }
+
+  @for (option of options; track $index) {
+    <label 
+      class="relative cursor-pointer" 
+      [ngClass]="small ? 'w-4 h-4' : 'w-6 h-6'"
+    >
+      <input 
+        type="radio" 
+        [(ngModel)]="selectedOption" 
+        [value]="option" 
+        class="hidden"
+        (change)="onOptionChange()"
+      />
+      <div 
+        [ngClass]="{
+          'bg-indigo-500': selectedOption >= option,
+          'bg-gray-300': selectedOption < option
+        }"
+        class="w-full h-full clip-star"
+      ></div>
+    </label>
   }
 </div>
