@@ -1,2 +1,10 @@
-<img [src]="mainImageSrc" class="place-card">
-<div class="place-name">{{placeName}}</div>
+<div class="w-24 cursor-pointer shrink-0">
+  <img 
+    [src]="mainImageSrc" 
+    alt="Place" 
+    class="object-cover w-full h-24 rounded-lg shadow-sm" 
+  />
+  <div class="mt-2 text-sm font-medium text-center text-indigo-600 truncate">
+    {{ placeName }}
+  </div>
+</div>
