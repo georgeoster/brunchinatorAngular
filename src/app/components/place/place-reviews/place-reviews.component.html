@@ -1,7 +1,8 @@
 @for (review of reviews; track $index) {
-  <div class="flex-row container">
-    <brunch-place-user-card [userName]="review.userName" (click)="navigateToProfileFor(review)"/>
-    <div class="flex-column body">
+  <div class="flex gap-4 pt-6 pb-8 border-t">
+    <brunch-place-user-card [userName]="review.userName" (click)="navigateToProfileFor(review)" />
+
+    <div class="flex-1">
       @if (review.burger) {
         <brunch-star-rating
           title="Burger"
@@ -16,11 +17,9 @@
           [selectedOption]="review.bloody"
         />
       }
-      
-      <div class="date">{{formatDate(review.reviewDate)}}</div>
-      <div class="words">{{review.words}}</div>
-      
+
+      <p class="mt-2 text-xs text-gray-500">{{ formatDate(review.reviewDate) }}</p>
+      <p class="mt-4 text-sm text-gray-800 whitespace-pre-wrap">{{ review.words }}</p>
     </div>
   </div>
 }
-
