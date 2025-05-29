@@ -1,5 +1,6 @@
 <nav 
-  class="fixed top-[var(--header-height)] left-0 h-[calc(100%-var(--header-height))] z-50 flex flex-col items-center transform transition-transform duration-500 ease-in-out"
+  class="fixed left-0 z-50 flex flex-col items-center transition-transform duration-500 ease-in-out transform"
+
   [ngClass]="{ 'translate-x-0 px-8 py-12 bg-white/90 backdrop-blur-sm shadow-lg': showMenu, '-translate-x-[200vw]': !showMenu }"
 >
   <ul class="w-full p-0 m-0 text-indigo-600 list-none">
