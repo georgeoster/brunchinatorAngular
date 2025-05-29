@@ -1,9 +1,15 @@
-<nav class="menu" [ngClass]="{menuVisible: showMenu}">
-  <ul>
+<nav 
+  class="fixed top-[var(--header-height)] left-0 h-[calc(100%-var(--header-height))] z-50 flex flex-col items-center transform transition-transform duration-500 ease-in-out"
+  [ngClass]="{ 'translate-x-0 px-8 py-12 bg-white/90 backdrop-blur-sm shadow-lg': showMenu, '-translate-x-[200vw]': !showMenu }"
+>
+  <ul class="w-full p-0 m-0 text-indigo-600 list-none">
     @for (item of menuItems; track $index) {
-      <li (click)="routerHandler(item.route)">
-        <img [src]="iconFor(item)"/>
-        <div>{{item.label}}</div> 
+      <li 
+        class="flex items-center w-full py-8 text-2xl font-medium transition-colors cursor-pointer hover:text-indigo-800"
+        (click)="routerHandler(item.route)"
+      >
+        <img [src]="iconFor(item)" class="h-8 mr-4" />
+        <div>{{ item.label }}</div> 
       </li>
     }
   </ul>
