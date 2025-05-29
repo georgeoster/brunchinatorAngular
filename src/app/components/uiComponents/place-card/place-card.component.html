@@ -1,5 +1,5 @@
-<div class="bg-white rounded-xl overflow-hidden shadow-md w-full transition hover:shadow-lg cursor-pointer">
-  <div class="h-48 w-full bg-gray-200 bg-cover bg-center" [ngStyle]="{ 'background-image': cardStyle }"></div>
+<div class="w-full overflow-hidden transition bg-white shadow-md cursor-pointer rounded-xl hover:shadow-lg">
+  <div class="w-full h-48 bg-gray-200 bg-center bg-cover" [ngStyle]="{ 'background-image': cardStyle }"></div>
 
   <div class="p-4">
     <h2 class="text-lg font-semibold text-gray-900 truncate">{{ placeName() }}</h2>
@@ -14,5 +14,3 @@
     </div>
   </div>
 </div>
-
-<div #map id="map"></div>

@@ -12,7 +12,6 @@ import { GetPlacesService } from '../../services/get-places.service';
   styleUrl: './place.component.css'
 })
 export class PlaceComponent {
-  @ViewChild('map', { static: false }) map!: ElementRef;
   place!: Place;
   placeId:string = '';
   mainImageSrc:string = '';
@@ -59,6 +58,6 @@ export class PlaceComponent {
   }
 
   async populateMainImageSrc() {
-    this.mainImageSrc =  await getImageFromPlaceId(this.placeIdToPass, this.map.nativeElement);
+    this.mainImageSrc =  await getImageFromPlaceId(this.placeIdToPass);
   }
 }

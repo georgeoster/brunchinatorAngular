@@ -1,4 +1,5 @@
 import { autoCompletePlace } from "../models/AutoCompletePlace";
+import { host } from "./http/consts";
 declare const google: any;
 
 export const getImageForPlace = (place:autoCompletePlace) => {
@@ -7,14 +8,16 @@ export const getImageForPlace = (place:autoCompletePlace) => {
   return place?.photos?.[0]?.getUrl({'maxWidth': 600, 'maxHeight': 600}) ?? defaultImage;
 }
 
-export const getImageFromPlaceId = async (placeId:string, map:any) => {
+export const getImageFromPlaceId = async (placeId: string): Promise<string> => {
   try {
-    const place = await getPlaceDetails(placeId, map);
-    return getImageForPlace(place as autoCompletePlace);
-  } catch (error) {
-    return 'defaultPlace.jpg'
+    const res = await fetch(`${host}/places/api/v1/place-photo-url/${placeId}`);//${host}/reviews/
+    const json = await res.json();
+    return `${host}/places/${json.photoUrl}`;
+  } catch {
+    return '/defaultPlace.jpg';
   }
 }
+
 
 const getPlaceDetails = async (placeId:string, map:any) => {
   return new Promise((resolve, reject) => {
