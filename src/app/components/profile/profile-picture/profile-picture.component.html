@@ -1,16 +1,29 @@
-<input type="file" (change)="imageUploadHandler($event)" name="imageInput" id="imageInput" class="hidden">
-<div class="profile-picture">
-  <img [src]="profilePicture" (error)="handleProfilePictureError($event)"/>
-</div>
-<label for="imageInput">
-  <div class="label-button">
-    @if (profileIsSignedInUser) {
+<input 
+  type="file" 
+  (change)="imageUploadHandler($event)" 
+  name="imageInput" 
+  id="imageInput" 
+  class="hidden"
+/>
+
+<div class="flex flex-col items-center space-y-4">
+  <div class="w-32 h-32 overflow-hidden shadow-md rounded-xl">
+    <img 
+      [src]="profilePicture" 
+      (error)="handleProfilePictureError($event)" 
+      class="object-cover w-full h-full" 
+      alt="User Profile Picture"
+    />
+  </div>
+
+  @if (profileIsSignedInUser) {
+    <label for="imageInput">
       <brunch-button
         title="Change Picture"
         [callToAction]="true"
         [showBorder]="false"
         [loading]="loading"
       />
-    }
-  </div>
-</label>
+    </label>
+  }
+</div>
