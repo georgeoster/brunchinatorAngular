@@ -18,6 +18,6 @@ export class ProfilePlaceCardComponent {
   }
 
   async populateMainImageSrc() {
-    this.mainImageSrc = await getImageFromPlaceId(this.placeId, this.map.nativeElement);
+    this.mainImageSrc = await getImageFromPlaceId(this.placeId);
   }
 }

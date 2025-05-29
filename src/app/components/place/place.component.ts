@@ -59,6 +59,6 @@ export class PlaceComponent {
   }
 
   async populateMainImageSrc() {
-    this.mainImageSrc =  await getImageFromPlaceId(this.placeIdToPass, this.map.nativeElement);
+    this.mainImageSrc =  await getImageFromPlaceId(this.placeIdToPass);
   }
 }

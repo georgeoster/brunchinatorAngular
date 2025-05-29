@@ -20,7 +20,6 @@ export class PlaceCardComponent {
   ngOnInit() {
     const rating = this.place?.overallRating ?? 0;
     this.starRating = Math.round(rating) ?? 0;
-    console.log('we end up with: ' + this.starRating);
   }
 
   ngAfterViewInit() {
@@ -29,7 +28,7 @@ export class PlaceCardComponent {
 
   async populateMainImageSrc() {
     const placeId = this.place?.placeId ?? '1';
-    this.mainImageSrc = await getImageFromPlaceId(placeId, this.map.nativeElement);
+    this.mainImageSrc = await getImageFromPlaceId(placeId);
     this.cardStyle = `url('${this.mainImageSrc}')`;
 
   }
