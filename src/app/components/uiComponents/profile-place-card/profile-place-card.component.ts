@@ -9,7 +9,6 @@ import { getImageFromPlaceId } from '../../../utils/placeUtils';
 })
 export class ProfilePlaceCardComponent {
   @Input() placeName:string = 'Place';
-  @ViewChild('map', { static: false }) map!: ElementRef;
   @Input() placeId:string = '1';
   mainImageSrc:string = '';
 

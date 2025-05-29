@@ -12,7 +12,6 @@ import { NgStyle } from '@angular/common';
 })
 export class PlaceCardComponent {
   @Input() place!:Place;
-  @ViewChild('map', { static: false }) map!: ElementRef;
   starRating!:number;
   mainImageSrc:string = '';
   cardStyle: string = '';
