@@ -1,14 +1,14 @@
 @if (isLoggedIn) {
   <div 
     (click)="navigateToProfile(ROUTE_NAMES.PROFILE)" 
-    class="text-indigo-600 font-semibold cursor-pointer"
+    class="font-semibold text-indigo-600 cursor-pointer"
   >
     {{ user.userName }}
   </div>
 }
 @if (!isLoggedIn) {
   <div class="flex items-center space-x-2">
-    <brunch-button title="Sign In" [showBorder]="false" (buttonClick)="routeTo(ROUTE_NAMES.SIGN_IN)" />
-    <brunch-button title="Register" [callToAction]="true" (buttonClick)="routeTo(ROUTE_NAMES.SIGN_UP)" />
+    <brunch-button title="Sign In" [compact]="true" (buttonClick)="routeTo(ROUTE_NAMES.SIGN_IN)" />
+    <brunch-button title="Register" [callToAction]="true" [compact]="true" (buttonClick)="routeTo(ROUTE_NAMES.SIGN_UP)" />
   </div>
 }
