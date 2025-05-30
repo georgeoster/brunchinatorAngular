@@ -12,6 +12,7 @@ export class ButtonComponent {
   @Input() title: string = 'button';
   @Input() showBorder: boolean = true;
   @Input() callToAction: boolean = false;
+  @Input() compact: boolean = false;
   @Input() loading: boolean = false;
 
   @Output('buttonClick') buttonClick: EventEmitter<any> = new EventEmitter();

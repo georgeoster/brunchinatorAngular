@@ -1,18 +1,18 @@
 <img 
-  src="/burger2.jpg" 
-  alt="Burger" 
-  class="w-full h-60 object-cover sm:w-80 sm:h-60 sm:rounded-xl sm:mx-auto mt-6"
+  src="/signIn.png" 
+  alt="Sign In Visual" 
+  class="object-cover w-full mt-6 h-60 rounded-none sm:rounded-xl sm:mx-auto sm:w-[28rem] sm:h-64 md:w-[32rem] md:h-72"
 />
 
-<h1 class="text-2xl sm:text-3xl font-bold text-indigo-600 text-center mt-6 mb-2">
+<h1 class="mt-6 mb-2 text-2xl font-bold text-center text-indigo-600 sm:text-3xl">
   Sign In To Your Account
 </h1>
 
-<p class="text-sm text-gray-500 text-center mb-6">
+<p class="mb-6 text-sm text-center text-gray-500">
   Enter your credentials below
 </p>
 
-<div class="px-4 sm:px-0 max-w-md mx-auto">
+<div class="max-w-md px-4 mx-auto sm:px-0">
   <brunch-card>
     @if (signInError) {
       <app-error-message [message]="errorMessage" />
@@ -46,10 +46,10 @@
     </div>
   </brunch-card>
 
-  <p class="text-sm text-center mt-6 text-gray-700">
+  <p class="mt-6 text-sm text-center text-gray-700">
     Don't have an account? 
     <span 
-      class="text-indigo-600 font-semibold cursor-pointer"
+      class="font-semibold text-indigo-600 cursor-pointer"
       (click)="routeTo(ROUTE_NAMES.SIGN_UP)"
     >
       Sign Up Now!
