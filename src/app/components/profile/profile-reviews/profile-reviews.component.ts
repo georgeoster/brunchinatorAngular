@@ -15,7 +15,16 @@ import { Router } from '@angular/router';
 })
 export class ProfileReviewsComponent {
 
-  @Input() userName!:string;
+  private _userName!:string;
+  @Input()
+  set userName(name:string) {
+    this._userName = name;
+    this.getReviewsService.getReviewsByUserName(this.userName);
+  }
+  get userName() {
+    return this._userName;
+  }
+
   @Input() profileIsSignedInUser:boolean = false;
   reviews!:Array<Review>;
   getReviewsServiceSubscription:Subscription = new Subscription();

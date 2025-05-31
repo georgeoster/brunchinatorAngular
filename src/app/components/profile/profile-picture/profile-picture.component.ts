@@ -12,7 +12,16 @@ import { ButtonComponent } from '../../uiComponents/button/button.component';
 })
 export class ProfilePictureComponent {
 
-  @Input() userName!:string;
+  private _userName:string = '';
+  @Input()
+  set userName(name:string) {
+    this._userName = name;
+    this.profilePicture = `${s3Host}/${this._userName}`;
+  }
+  get userName() {
+    return this._userName
+  }
+
   imageToUpload!:File;
   @Input() profileIsSignedInUser:boolean = false;
   profilePicture!:String;

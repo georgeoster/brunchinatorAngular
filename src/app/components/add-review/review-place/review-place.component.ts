@@ -22,7 +22,16 @@ import { getImageForPlace } from '../../../utils/placeUtils';
 })
 export class ReviewPlaceComponent {
 
-  @Input() place!: autoCompletePlace;
+  private _place!:autoCompletePlace;
+  @Input()
+  set place(p:autoCompletePlace) {
+    this._place = p;
+    this.populateMainImageSrc();
+  }
+  get place() {
+    return this._place;
+  }
+
   mainImageSrc:string = '';
   review:CreateReview = {
     placeId: '',
@@ -74,7 +83,7 @@ export class ReviewPlaceComponent {
   }
 
   ngOnInit(){
-    this.populateMainImageSrc()
+    this.populateMainImageSrc();
   }
 
   ngOnDestroy() {
