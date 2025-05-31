@@ -24,6 +24,10 @@ export class PlaceReviewsComponent {
     this.subscribeToGetReviewsService();
   }
 
+  ngOnDestroy() {
+    this.getReviewsServiceSubscription.unsubscribe();
+  }
+
   ngOnInit(){
     this.getReviewsService.getReviewsByPlaceId(this.placeId);
   }
