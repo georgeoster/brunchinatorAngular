@@ -3,16 +3,20 @@ import { s3Host } from '../../../utils/http/consts';
 
 @Component({
   selector: 'brunch-place-user-card',
-  imports: [],
   templateUrl: './place-user-card.component.html',
-  styleUrl: './place-user-card.component.css'
 })
 export class PlaceUserCardComponent {
-  @Input() userName:string = 'Place';
-  profilePicture!:String;
+  profilePicture: string = '/defaultProfile.jpg';
+  private _userName: string = '';
 
-  ngOnInit() {
+  @Input()
+  set userName(name: string) {
+    this._userName = name;
     this.populateMainImageSrc();
+  }
+
+  get userName() {
+    return this._userName;
   }
 
   async populateMainImageSrc() {
